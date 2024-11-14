@@ -11,105 +11,31 @@ html {
 }
 
 :root {
-
-    /* Cores Primárias */
-    --color-black: #151515;
-    --color-white: #FCFCFC;
-    --color-gray-dark: #AAAAAA;
-    --color-gray-light: #F0F0F0;
-    --color-blue-primary: #006BD6;
-    --color-blue-dark: #00429A;
-    --color-blue-light: #59AEF6;
-    --color-blue-background: #C7E5FF;
+    /* Paleta de cores */
+    --black: #151515;
+    --white: #FCFCFC;
+    --gray-dark: #AAAAAA;
+    --gray-light: #F0F0F0;
+    --blue-primary: #006BD6;
+    --blue-dark: #00429A;
+    --blue-light: #59AEF6;
+    --blue-background: #C7E5FF;
 
     /* Gradiente */
-    --gradient-primary: linear-gradient(0deg, #59AEF6, #00429A);
+    --gradient: linear-gradient(100deg, var(--blue-light) 0%, var(--blue-dark) 100%);
 
     /* Indicadores */
-    --color-warning: #EFA107;
-    --color-warning-bg: #FFF9DB;
-    --color-delete: #FA4659;
-    --color-delete-bg: #FDD0D0;
-    --color-success: #12B76A;
-    --color-success-bg: #ECFFE6;
+    --warning: #EFA107;
+    --warning-bg: #FFF9DB;
+    --delete: #FA4659;
+    --delete-bg: #FDD0D0;
+    --success: #12B76A;
+    --success-bg: #ECFFE6;
 
     /* Sombra */
     --box-shadow-primary: 0.25rem 0.25rem var(--color-blue-primary);
-
-    body {
-        background-color: var(--color-white);
-    }
-
-    /* Botão pequeno */
-.button-small {
-    color: var(--color-white);
-    cursor: pointer;
-    border: 1px solid var(--color-blue-primary);
-    border-radius: 4px;
-    padding: 0.4em 1em;
-    background: var(--color-blue-primary);
-    font-size: 0.8rem;
-    transition: 0.2s;
 }
 
-.button-small:hover {
-    color: var(--color-black);
-    transform: translate(-0.25rem, -0.25rem);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow-primary);
-}
-
-.button-small:active {
-    transform: translate(0);
-    box-shadow: none;
-}
-
-/* Botão médio (padrão) */
-.button {
-    color: var(--color-white);
-    cursor: pointer;
-    border: 1px solid var(--color-blue-primary);
-    border-radius: 4px;
-    padding: 0.8em 2em;
-    background: var(--color-blue-primary);
-    font-size: 1rem;
-    transition: 0.2s;
-}
-
-.button:hover {
-    color: var(--color-black);
-    transform: translate(-0.25rem, -0.25rem);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow-primary);
-}
-
-.button:active {
-    transform: translate(0);
-    box-shadow: none;
-}
-
-/* Botão grande */
-.button-large {
-    color: var(--color-white);
-    cursor: pointer;
-    border: 1px solid var(--color-blue-primary);
-    border-radius: 4px;
-    padding: 1.2em 3em;
-    background: var(--color-blue-primary);
-    font-size: 1.2rem;
-    transition: 0.2s;
-}
-
-.button-large:hover {
-    color: var(--color-black);
-    transform: translate(-0.25rem, -0.25rem);
-    background: var(--color-white);
-    box-shadow: var(--box-shadow-primary);
-}
-
-.button-large:active {
-    transform: translate(0);
-    box-shadow: none;
-}
-
+body {
+    background-color: var(--color-white);
 }
