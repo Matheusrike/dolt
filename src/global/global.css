@@ -33,9 +33,10 @@ html {
     --success-bg: #ECFFE6;
 
     /* Sombra */
-    --box-shadow-primary: 0.25rem 0.25rem var(--color-blue-primary);
+    --blue-shadow: 0.25rem 0.25rem var(--color-blue-primary);
 }
 
 body {
     background-color: var(--color-white);
 }
+
