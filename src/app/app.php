@@ -117,7 +117,6 @@
                 <div class="text">Logout</div>
             </button>
         </div>
-
     </nav>
 </body>
 
