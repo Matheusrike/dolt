@@ -1,42 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* -------------------------- Configurações globais ------------------------- */
+
+/*Fonte usada no apenas no site e na autenticação*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
+/*Fonte usada no apenas na aplicação*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/*Define que todos os elementos possuem margem e padding 0*/
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
+/*Define que todas as páginas html possuem 62.5% de font site, usado para usar medidas relativas mais facilmente*/
 html {
     font-size: 62.5%;
 }
 
 :root {
-    /* Paleta de cores */
-    --black: #151515;
-    --white: #FCFCFC;
-    --gray-dark: #AAAAAA;
-    --gray-light: #F0F0F0;
-    --blue-primary: #006BD6;
-    --blue-dark: #00429A;
-    --blue-light: #59AEF6;
-    --blue-background: #C7E5FF;
+    /* Variáveis da paleta de cores */
+    --White: #FCFCFC;
+    --Black: #151515;
+    --Dark-Gray: #AAAAAA;
+    --Light-Gray: #F0F0F0;
+    --Blue: #006BD6;
+    --Dark-Blue: #00429A;
+    --Light-Blue: #C7E5FF;
 
-    /* Gradiente */
-    --gradient: linear-gradient(100deg, var(--blue-light) 0%, var(--blue-dark) 100%);
+    /* Variável de gradiente */
+    --Blue-to-LightBlue: linear-gradient(100deg, var(--Blue-Light) 0%, var(--Blue-Dark) 100%);
 
-    /* Indicadores */
-    --warning: #EFA107;
-    --warning-bg: #FFF9DB;
-    --delete: #FA4659;
-    --delete-bg: #FDD0D0;
-    --success: #12B76A;
-    --success-bg: #ECFFE6;
+    /* Variável da paleta de cores dos elementos indicadores */
+    --Warning: #EFA107;
+    --Warning-Bg: #FFF9DB;
+    --Delete: #FA4659;
+    --Delete-Bg: #FDD0D0;
+    --Success: #12B76A;
+    --Success-Bg: #ECFFE6;
 
-    /* Sombra */
-    --blue-shadow: 0.25rem 0.25rem var(--color-blue-primary);
+    /* Variáveis de sombra*/
+    --Blue-Shadow: 0.25rem 0.25rem var(--Blue);
+    --Light-Shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Define que por padrão o body é da cor branca definida na variável white */
 body {
-    background-color: var(--color-white);
+    background-color: var(--White);
 }
 
+/* ---------------------- Componentes Globais - Botões ---------------------- */
+
+/* Botão Pequeno */
+.rounded-cta-button {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    padding: 0.5rem;
+    background-color: var(--Dark-Blue);
+    box-shadow: var(--Light-Shadow);
+    transition: 0.3s;
+    aspect-ratio: 1/1;
+    max-width: 3.4rem;
+    min-width: 3.4rem;
+    overflow: hidden;
+}
+
+/* Animação ao pressionar o botão */
+.rounded-cta-button:active {
+    box-shadow: none;
+    transform: translateY(0.1rem);
+}
+
+
+.rounded-tertiary-button {
+    max-width: 3.4rem;
+    min-width: 3.4rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    padding: 0.5rem;
+    background-color: var(--White);
+    transition: 0.3s;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* ---------------------- Componentes Globais - Inputs ---------------------- */
+
+/* Input padrão */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--Dark-Gray);
+    background: var(--White);
+    border-radius: 5px;
+    outline: none;
+    color: var(--Black);
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    caret-color: var(--Dark-Blue);
+    transition: 0.3s;
+}
+
+.input-container label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    pointer-events: none;
+    font-size: 1.6rem;
+    color: var(--Dark-Gray);
+    transition: 0.3s;
+    background-color: var(--White);
+    padding: 0 5px;
+}
+
+.input-container input:valid~label,
+.input-container input:focus~label {
+    color: var(--Dark-Blue);
+    transform: translateY(-2.1rem);
+    font-size: 1.2rem;
+}
+
+.input-container input:valid,
+.input-container input:focus {
+    border: 1px solid var(--Dark-Blue);
+}
+
+/* ------------------------ Componentes do Uiverse.io ----------------------- */
+
+/*Botão expansível (Adaptado)*/
+/* De https://uiverse.io/vinodjangid07/thin-duck-22 */
+.expandable-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: var(--Light-Shadow);
+    background-color: var(--Dark-Blue);
+}
+
+/* plus sign */
+.icon {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.3rem;
+}
+
+/* text */
+.text {
+    position: absolute;
+    right: -8%;
+    width: 0%;
+    opacity: 0;
+    color: var(--White);
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+
+/* hover effect on button width */
+.expandable-button:hover {
+    width: 12.5rem;
+    border-radius: 40px;
+    transition-duration: .3s;
+}
+
+.expandable-button:hover .icon {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 30%;
+}
+
+/* hover effect button's text */
+.expandable-button:hover .text {
+    opacity: 1;
+    width: 80%;
+    height: 55%;
+    transition-duration: .3s;
+}
+
+/* button click effect*/
+.expandable-button:active {
+    transform: translateY(0.1rem);
+}
+
+/* ------------------------------ Material Design Lite Config ----------------------------- */
+
+/* Ajustes da animação de ripple do Material Design Lite */
+.mdl-js-ripple-effect .mdl-ripple {
+    background-color: var(--Light-Blue);
+}
+
+.mdl-js-ripple-effect .mdl-ripple.is-animating {
+    animation-duration: 1s;
+    transform: scale(1);
+}
