@@ -3,7 +3,6 @@
 /* ------------ Função que gera um ID único para um novo usuário ------------ */
 function generate_user_id()
 {
-
     // Pega o arquivo JSON e transforma em um array com o mesmo nome do arquivo;
     $users_data = json_decode(file_get_contents('../data/users_data.json'), true);
 
@@ -31,28 +30,30 @@ function generate_user_id()
 }
 
 /* ------- Função que cria um novo usuário no arquivo users_data.json ------- */
-function register_user($username, $email, $password)
+function register_user()
 {
-    $user_id = generate_user_id();
-    $user_username = $username;
-    $user_email = $email;
-    $user_password = $password;
+    //Verifica se o arquivo users_data.json não existe, se não existir cria um novo arquivo
+    if (!file_exists('../data/users_data.json')) {
+        file_put_contents('../data/users_data.json', json_encode(['users' => []]));
+    }
 
-    $data = json_decode(file_get_contents('../data/users_data.json'), true);
+    //Pega o arquivo JSON e transforma em um array com o mesmo nome do arquivo;
+    $users_data = json_decode(file_get_contents('../data/users_data.json'), true);
 
-    $data['users'][] = [
-        'user_id' => $user_id,
-        'username' => $user_username,
-        'user_email' => $user_email,
-        'user_password' => $user_password
+    //Cria dentro do array users na ultima posição, um novo registro de usuário com os dados vindos do formulário
+    $users_data['users'][] = [
+        'user_id' => generate_user_id(),
+        'username' => $_POST['username'],
+        'user_email' => $_POST['user_email'],
+        'user_password' => $_POST['user_password'],
+        'tasks-groups' => []
     ];
 
-    file_put_contents('../data/users_data.json', json_encode($data));
+    //Reescreve o arquivo users_data.json com o novo array
+    file_put_contents('../data/users_data.json', json_encode($users_data), JSON_PRETTY_PRINT);
 }
 
-/* ----------------------- Teste de inserção de dados ----------------------- */
-register_user('Jorginho', 'Jorginho@email.com', 'Coxinha_123');
-$users = json_decode(file_get_contents('../data/users_data.json'), true);
-print '<pre>';
-print_r($users);
-print '</pre>';
+register_user();
+echo '<pre>';
+print_r(json_decode(file_get_contents('../data/users_data.json'), true));
+echo '</pre>';

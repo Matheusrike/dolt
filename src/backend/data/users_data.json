@@ -1,3 +1,25 @@
 {
-    "users": []
+    "users": [
+        {
+            "user_id": 1,
+            "username": "Lucas Serralheiro",
+            "user_email": "LucasSerralheiro@email.com",
+            "user_password": "Coxinha_123",
+            "tasks-groups": []
+        },
+        {
+            "user_id": 2,
+            "username": "Lucas Serralheiro",
+            "user_email": "LucasSerralheiro@email.com",
+            "user_password": "Coxinha_123",
+            "tasks-groups": []
+        },
+        {
+            "user_id": 3,
+            "username": "Lucas Serralheiro",
+            "user_email": "LucasSerralheiro@email.com",
+            "user_password": "Coxinha_123",
+            "tasks-groups": []
+        }
+    ]
 }
