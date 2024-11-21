@@ -51,7 +51,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="./assets/style/style.css">
 
     <!-- Importa as funções javascript aplicados na página -->
-    <script type="module" src="./assets/script/script.js" defer></script>
+    <script src="./assets/Javascript/app_functions.js"></script>
 </head>
 
 <body>
@@ -63,7 +63,6 @@ if (!isset($_SESSION['user_id'])) {
                 <?php echo $user_data['username']; ?>
             </span>
         </div>
-
         <!-- Mensagem de alerta para o usuário caso ele ainda não tenha criado nenhum grupo -->
         <div class="none-group-container" id="alert" style="display: none;">
             <img src="./assets/img/noneGroup-icon.svg">
@@ -155,22 +154,22 @@ if (!isset($_SESSION['user_id'])) {
                 $tasks = $task_group['tasks'];
                 foreach ($tasks as $task) {
                     echo '
-<li class="task mdl-list__item">
-<span class="mdl-list__item-secondary-action">
-    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-' . $task['task_id'] . '">
-        <input type="checkbox" id="list-checkbox-' . $task['task_id'] . '" class="checkbox-input mdl-checkbox__input" />
-    </label>
-</span>
-<p class="task-name">' . $task['task_name'] . '</p>
-<div class="actions-container">
-    <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(/*task_id*/)">
-        <span class="material-symbols-rounded">edit</span>
-    </button>
-    <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(/*task_id*/)">
-        <span class="material-symbols-rounded">delete</span>
-    </button>
-</div>
-                        </li>
+                    <li class="task mdl-list__item">
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-' . $task['task_id'] . '">
+                                <input type="checkbox" id="list-checkbox-' . $task['task_id'] . '" class="checkbox-input mdl-checkbox__input" />
+                            </label>
+                        </span>
+                        <p id="task-name-' . $task['task_id'] . '" class="task-name">' . $task['task_name'] . '</p>
+                        <div class="actions-container">
+                            <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(' . $task['task_id'] . ')">
+                                <span class="material-symbols-rounded">edit</span>
+                            </button>
+                            <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(' . $task['task_id'] . ')">
+                                <span class="material-symbols-rounded">delete</span>
+                            </button>
+                        </div>
+                    </li>
                     ';
                 }
                 ?>

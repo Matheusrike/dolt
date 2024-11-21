@@ -1,11 +1,8 @@
 <?php
 session_start();
 
-// Pega o arquivo JSON e transforma em um array com o mesmo nome do arquivo;
-$users_data = json_decode(file_get_contents('../backend/data/users_data.json'), true);
-
-//Acessa o array users que está dentro do arquivo users_data.json
-$users = $users_data['users'];
+//Criar um array de users com base no Objeto Users do JSON users_data
+$users = json_decode(file_get_contents('../backend/data/users_data.json'), true)['users'];
 
 //Define uma variável $authenticated para saber se a autenticação foi bem-sucedida
 $authenticated = false;
