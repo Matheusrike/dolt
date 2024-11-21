@@ -1,25 +1,128 @@
 {
     "users": [
         {
+            "user_id": 0,
+            "username": "Teste1",
+            "user_email": "teste1@email.com",
+            "user_password": "Teste_123",
+            "tasks_groups": [
+                {
+                    "group_id": 1,
+                    "group_name": "Teste1",
+                    "tasks": [
+                        {
+                            "task_id": 1,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 1",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "open"
+                        },
+                        {
+                            "task_id": 2,
+                            "task_name": "T_Teste2",
+                            "task_description": "Exemplo de descrição da tarefa grupo 1",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "complete"
+                        },
+                        {
+                            "task_id": 3,
+                            "task_name": "T_Teste3",
+                            "task_description": "Exemplo de descrição da tarefa grupo 1",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "pending"
+                        }
+                    ]
+                },
+                {
+                    "group_id": 2,
+                    "group_name": "Teste2",
+                    "tasks": [
+                        {
+                            "task_id": 1,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 2",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "open"
+                        },
+                        {
+                            "task_id": 2,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 2",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "complete"
+                        },
+                        {
+                            "task_id": 3,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 2",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "pending"
+                        }
+                    ]
+                },
+                {
+                    "group_id": 3,
+                    "group_name": "Teste 3",
+                    "tasks": [
+                        {
+                            "task_id": 1,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 3",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "open"
+                        },
+                        {
+                            "task_id": 2,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 3",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "complete"
+                        },
+                        {
+                            "task_id": 3,
+                            "task_name": "T_Teste1",
+                            "task_description": "Exemplo de descrição da tarefa grupo 3",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "pending"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "user_id": 1,
-            "username": "Lucas Serralheiro",
-            "user_email": "LucasSerralheiro@email.com",
-            "user_password": "Coxinha_123",
-            "tasks-groups": []
-        },
-        {
-            "user_id": 2,
-            "username": "Lucas Serralheiro",
-            "user_email": "LucasSerralheiro@email.com",
-            "user_password": "Coxinha_123",
-            "tasks-groups": []
-        },
-        {
-            "user_id": 3,
-            "username": "Lucas Serralheiro",
-            "user_email": "LucasSerralheiro@email.com",
-            "user_password": "Coxinha_123",
-            "tasks-groups": []
+            "username": "Teste2",
+            "user_email": "teste2@email.com",
+            "user_password": "Teste_456",
+            "tasks_groups": [
+                {
+                    "group_id": 1,
+                    "group_name": "Teste2",
+                    "tasks": [
+                        {
+                            "task_id": 1,
+                            "task_name": "Teste2",
+                            "task_description": "Exemplo de descri o da tarefa",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "open"
+                        },
+                        {
+                            "task_id": 2,
+                            "task_name": "Teste2",
+                            "task_description": "Exemplo de descri o da tarefa",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "complete"
+                        },
+                        {
+                            "task_id": 3,
+                            "task_name": "Teste2",
+                            "task_description": "Exemplo de descri o da tarefa",
+                            "task_due_date": "2023-05-01",
+                            "task_status": "pending"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

@@ -52,8 +52,3 @@ function register_user()
     //Reescreve o arquivo users_data.json com o novo array
     file_put_contents('../data/users_data.json', json_encode($users_data), JSON_PRETTY_PRINT);
 }
-
-register_user();
-echo '<pre>';
-print_r(json_decode(file_get_contents('../data/users_data.json'), true));
-echo '</pre>';

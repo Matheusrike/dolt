@@ -98,6 +98,7 @@ body {
 .input-container {
     position: relative;
     width: 100%;
+    height: fit-content;
 }
 
 .input-container input {
@@ -124,6 +125,9 @@ body {
     transition: 0.3s;
     background-color: var(--White);
     padding: 0 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .input-container input:valid~label,
