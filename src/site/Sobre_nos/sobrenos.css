@@ -129,7 +129,7 @@ a {
     text-align: center;
     color: #fcfcfc;
     width: 768px;
-    
+
 }
 
 .initial-subtext {
@@ -143,7 +143,7 @@ a {
 .btn-nossoprojeto {
     background: none;
     font-size: 16px;
-    border: 1px  solid #fcfcfc;
+    border: 1px solid #fcfcfc;
     height: 48px;
     width: 150px;
     border-color: #fcfcfc;
@@ -199,7 +199,7 @@ a {
     gap: 24px;
 }
 
-.img-missaomini{
+.img-missaomini {
     width: 80px;
     height: 80px;
     align-self: left;
@@ -216,7 +216,7 @@ a {
 
 .missao-subtext {
     font-size: 18px;
-    line-height: 150%;    
+    line-height: 150%;
     text-align: left;
     color: #151515;
     width: 616px;
@@ -246,7 +246,7 @@ a {
     gap: 24px;
 }
 
-.img-visaomini{
+.img-visaomini {
     width: 80px;
     height: 80px;
     align-self: left;
@@ -263,9 +263,9 @@ a {
 
 .visao-subtext {
     font-size: 18px;
-    line-height: 150%;    
+    line-height: 150%;
     text-align: left;
-    color: #151515;    
+    color: #151515;
     width: 616px;
 }
 
@@ -278,4 +278,357 @@ a {
     padding: 64px;
     gap: 80px;
     justify-content: center;
+    align-items: center;
 }
+
+.valores-minicont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.valores-text {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    text-align: left;
+    color: #151515;
+    width: 380px;
+
+}
+
+.valores-subtext {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: left;
+    color: #151515;
+    width: 380px;
+}
+
+.img-valores {
+    width: 380px;
+    height: 351px;
+}
+
+.valores-cardcont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 900px;
+    height: 726px;
+}
+
+.valores-card {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    gap: 24px;
+    padding: 18px;
+    width: 402px;
+    height: 341.01px;
+    border-radius: 20px;
+    border: 1px solid #AAAAAA;
+    color: #fcfcfc;
+    box-shadow: -5px 5px#006bd6;
+
+}
+
+.img-valoresmini {
+    width: 51.56px;
+    height: 55px;
+}
+
+.valores-cardtext {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    color: #151515;
+    width: 366px;
+    height: auto;
+}
+
+.valores-cardsubtext {
+    font-size: 16px;
+    line-height: 150%;
+    color: #151515;
+    width: 366px;
+    height: 72px;
+}
+
+/* fim dos valores */
+
+/* equipe */
+
+.equipe-section {
+    display: flex;
+    padding: 64px;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.euqipe-minicont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px
+}
+
+.equipe-minitextcont {
+    display: flex;
+    justify-content: center;
+}
+
+.equipe-minitext {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    height: 24px;
+    width: 56px;
+    color: #151515;
+}
+
+.equipe-textcont {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.equipe-text {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    text-align: center;
+    color: #00429a;
+    width: 768px;
+    height: 58px;
+
+}
+
+.equipe-subtext {
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: #151515;
+    width: 768px;
+    height: 27px;
+}
+
+.equipe-cardcont {
+    display: flex;
+    gap: 48px;
+}
+
+.colaboradores-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 405px;
+    height: 279px;
+    gap: 24px;
+}
+
+.img-colaboradores {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.colaboradores-minicont {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.colaboradores-minidiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.colaboradores-nome {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #00429a;
+    width: 405px;
+    height: 30px;
+}
+
+.colaboradores-funcao {
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: #151515;
+    width: 405px;
+    height: 27px;
+}
+
+
+.colaboradores-feitos {
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #151515;
+    width: 405px;
+    height: 48px;
+}
+
+.git{
+    transition: transform 0.3s ease-in-out;
+}
+
+.git-path {
+    transition: fill 0.3s ease-in-out;
+}
+
+.git:hover .git-path {
+    fill: #000000;
+}
+
+.git:hover {
+    transform: scale(1.25);
+}
+
+
+.equipe-minicont2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.equipe-textcont2 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 768px;
+    height: 85px;
+}
+
+.equipe-bigtext {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    text-align: center;
+    width: 768px;
+    height: 42px;
+}
+
+.btn-repositorio {
+    outline: none;
+    background-color: #006bd6;
+    border: none;
+    height: 48px;
+    width: 225px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn-repositorio a {
+    color: #fcfcfc;
+}
+
+/* fim da equipe */
+
+/* footer */
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 80px 64px;
+}
+
+.footer-minicont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-textcont {
+    display: flex;
+    gap: 32px;
+}
+
+.img-container {
+    display: flex;
+    gap: 8px;
+}
+
+.img-footer {
+    height: 30px;
+    width: 108.63px;
+}
+
+.footer-minimg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-text1 {
+    width: 105px;
+    height: 21px;
+    font-size: 14px;
+    color: #151515;
+}
+
+.footer-text2 {
+    width: 160px;
+    height: 21px;
+    font-size: 14px;
+    color: #151515;
+}
+
+.copyright {
+    padding-top: 33px;
+    font-size: 14px;
+}
+
+.copy-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #006bd6;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: #151515;
+    line-height: 1;
+    position: relative;
+}
+
+.footer-link::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #151515;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
+}
+
+.footer-link:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* fim do footer */

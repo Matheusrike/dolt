@@ -58,18 +58,42 @@ include 'arrays.php';
 
     <section class="valores-section">
         <div class="valores-minicont">
+            <p class="valores-text">Nossos Valores Fundamentais na Empresa</p>
+            <p class="valores-subtext">Na nossa empresa, acreditamos que os valores são a base de tudo. Eles nos guiam em cada decisão e ação que tomamos.</p>
             <img src="img/valores.svg" class="img-valores">
-            <p class="valores-text"></p>
-            <p class="valores-subtext"></p>
         </div>
-        <div class="valores-card">
-            <img src="img/.svg" class="img-valoresmini">
-            <p class="valores-cardtext"></p>
-            <p class="valores-cardsubtext"></p>
+        <div class="valores-cardcont">
+            <?php
+            rendercards($cards);
+            ?>
         </div>
     </section>
 
-
+    <section class="equipe-section">
+        <div class="equipe-minicont">
+            <div class="equipe-minitextcont">
+            <p class="equipe-minitext">Equipe</p>
+            </div>
+            <div class="equipe-textcont">
+            <p class="equipe-text">Nossa equipe</p>
+            <p class="equipe-subtext">Conheça os colaboradores que impulsionam nosso sucesso</p>
+            </div>
+        </div>
+        <div class="equipe-cardcont">
+            <?php
+            rendercolaboradores($colaboradores);
+            ?>
+        </div>
+        <div class="equipe-minicont2">
+            <div class="equipe-textcont2">
+            <p class="equipe-bigtext">Saiba mais sobre o projeto!</p>
+            <p class="equipe-subtext">Confira nosso repositório e conheça mais sobre nosso projeto.</p>
+            </div>
+            <button class="btn-repositorio"><a href="">Repositório do Github</a></button>
+        </div>
+    </section>
 </body>
-
+<?php
+renderfooter();
+?>
 </html>
