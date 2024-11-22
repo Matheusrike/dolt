@@ -63,6 +63,7 @@ if (!isset($_SESSION['user_id'])) {
                 <?php echo $user_data['username']; ?>
             </span>
         </div>
+
         <!-- Mensagem de alerta para o usuário caso ele ainda não tenha criado nenhum grupo -->
         <div class="none-group-container" id="alert" style="display: none;">
             <img src="./assets/img/noneGroup-icon.svg">
@@ -71,7 +72,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <!-- Campo com os grupos criados pelo usuário -->
         <div class="groups-container" id="groups">
-            <div class="group active" onclick="loadTasks(); setActive();">
+            <div class="group active" onclick="setActive(); pullTasks()">
                 <div class="group-infos">
                     <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
                     <p>$Group_test</p>
@@ -85,10 +86,8 @@ if (!isset($_SESSION['user_id'])) {
                     </button>
                 </div>
             </div>
-            <?php
-            $users_data = json_decode(file_get_contents('../backend/data/users_data.json'), true);
-            $users = $users_data['users'];
 
+            <?php
             foreach ($users as $user) {
                 if ($user['user_id'] == $_SESSION['user_id']) {
                     $task_groups = $user['tasks_groups'];
@@ -150,7 +149,6 @@ if (!isset($_SESSION['user_id'])) {
         <div class="tasks-container" id="tasks-container">
             <ul class="tasks-list demo-list-control mdl-list">
                 <?php
-
                 $tasks = $task_group['tasks'];
                 foreach ($tasks as $task) {
                     echo '
