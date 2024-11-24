@@ -47,3 +47,9 @@ function renderfooter()
     </footer>
     ';
 }
+
+$sections = [
+    "Section 1" => "This is the help information for section 1.",
+    "Section 2" => "This is the help information for section 2.",
+    "Section 3" => "This is the help information for section 3."
+];

@@ -1,40 +1,40 @@
 .accordion {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .accordion-item {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .accordion-header {
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    background-color: #f7f7f7;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .accordion-header:hover {
-    background-color: #e2e2e2;
-  }
-  
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 15px;
-  }
-  
-  .accordion-content p {
-    margin: 15px 0;
-  }
-  
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.4s;
+}
+
+.accordion .symbol {
+  font-size: 20px;
+  transition: transform 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.active .symbol {
+  transform: rotate(45deg); /* Turns '+' into 'x' */
+}
+
+.panel {
+  padding: 0 10px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: white;
+  transition: max-height 0.4s ease-out;
+}
+
+.panel.show {
+  max-height: 200px; /* Adjust as needed */
+}

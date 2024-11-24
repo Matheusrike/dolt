@@ -5,7 +5,7 @@ function renderheader()
     echo '
     <header class="header">
         <div class="header-div">
-            <p class="head-text"><a href="#">Sobre Nós</a></p>
+            <p class="head-text"><a href="sobrenos.php">Sobre Nós</a></p>
             <p class="head-text"><a href="#">Contato</a></p>
         </div>
         <div>
