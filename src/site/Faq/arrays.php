@@ -49,7 +49,10 @@ function renderfooter()
 }
 
 $sections = [
-    "Section 1" => "This is the help information for section 1.",
-    "Section 2" => "This is the help information for section 2.",
-    "Section 3" => "This is the help information for section 3."
+    "Como funciona o sistema?" => "Nosso sistema de gerenciamento de tarefas permite que você organize suas atividades de forma eficiente. Você pode criar, editar e acompanhar suas tarefas em tempo real. Além disso, oferecemos integrações com outras ferramentas para facilitar seu trabalho.",
+    "É seguro usar?" => "Sim, a segurança dos seus dados é nossa prioridade. Utilizamos criptografia avançada para proteger suas informações. Além disso, realizamos auditorias regulares para garantir a integridade do sistema.",
+    "Posso cancelar minha assinatura?" => "Sim, você pode cancelar sua assinatura a qualquer momento. Basta acessar sua conta e seguir as instruções de cancelamento. Não haverá cobranças adicionais após o cancelamento.",
+    "Como recuperar minha senha?"=> "Para recuperar sua senha, clique na opção 'Esqueci minha senha' na página de login. Você receberá um e-mail com instruções para redefinir sua senha. Siga os passos indicados para criar uma nova senha.",
+    "Onde posso obter ajuda?"=> "Se você ainda tiver dúvidas, nossa equipe de suporte está à disposição. Você pode entrar em contato através do nosso formulário de contato. Estamos aqui para ajudar você!",
+
 ];
