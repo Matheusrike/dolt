@@ -1,10 +1,5 @@
-/* -------------------------- Configurações globais ------------------------- */
-
-/*Fonte usada no apenas no site e na autenticação*/
+/* Importa as fontes do google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-
-/*Fonte usada no apenas na aplicação*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /*Define que todos os elementos possuem margem e padding 0*/
 * {
@@ -49,7 +44,7 @@ body {
     background-color: var(--White);
 }
 
-/* ---------------------- Componentes Globais - Botões ---------------------- */
+/* ---------------------- Componentes Globais - Botões ↓ ---------------------- */
 
 /* Botão CTA arredondado */
 .rounded-cta-button {
@@ -92,7 +87,7 @@ body {
     overflow: hidden;
 }
 
-/* ------------------------------ Input animado ----------------------------- */
+/* ------------------------------ Input animado ↓ ----------------------------- */
 
 .input-container {
     position: relative;
@@ -139,7 +134,7 @@ body {
     border: 1px solid var(--Dark-Blue);
 }
 
-/* ------------------------ Componentes do Uiverse.io ----------------------- */
+/* ------------------------ Componentes do Uiverse.io ↓ ----------------------- */
 
 /*Botão expansível (Adaptado)*/
 /* De https://uiverse.io/vinodjangid07/thin-duck-22 */
@@ -207,7 +202,7 @@ body {
     transform: translateY(0.1rem);
 }
 
-/* ------------------------------ Material Design Lite Config ----------------------------- */
+/* ------------------------------ Material Design Lite Config ↓ ----------------------------- */
 
 /* Ajustes da animação de ripple do Material Design Lite */
 .mdl-js-ripple-effect .mdl-ripple {

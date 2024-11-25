@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../auth/login_teste.php');
+    header('Location: ../auth/pages/sign_in.php');
     exit();
 } else {
 
@@ -18,12 +18,12 @@ if (!isset($_SESSION['user_id'])) {
         }
     }
 
+    //Verificar necessidade, se não houver, excluir:
     if (!$user_data) {
         header('Location: ../auth/login_teste.php');
         exit();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -50,8 +50,9 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="../global/global.css">
     <link rel="stylesheet" href="./assets/style/style.css">
 
-    <!-- Importa as funções javascript aplicados na página -->
+    <!-- Importa as funções javascript aplicados na página e torna o user_data global -->
     <script src="./assets/Javascript/app_functions.js"></script>
+    <script> var user_data = <?php echo json_encode($user_data); ?>;</script>
 </head>
 
 <body>
@@ -72,37 +73,26 @@ if (!isset($_SESSION['user_id'])) {
 
         <!-- Campo com os grupos criados pelo usuário -->
         <div class="groups-container" id="groups">
-            <div class="group active" onclick="setActive(); pullTasks()">
-                <div class="group-infos">
-                    <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
-                    <p>$Group_test</p>
-                </div>
-                <div class="group-options">
-                    <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editGroup()">
-                        <span class="material-symbols-rounded">edit</span>
-                    </button>
-                    <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteGroup()">
-                        <span class="material-symbols-rounded">delete</span>
-                    </button>
-                </div>
-            </div>
-
             <?php
-            foreach ($users as $user) {
-                if ($user['user_id'] == $_SESSION['user_id']) {
-                    $task_groups = $user['tasks_groups'];
-                    foreach ($task_groups as $task_group) {
-
-                        echo '
-                    <div class="group" onclick="setActive(); loadTasks(' . $task_group['group_id'] . ')">
+            $task_groups = $user_data['tasks_groups'];
+            foreach ($task_groups as $task_group) {
+                echo '
+                    <div class="group" id="group-' . $task_group['group_id'] . '" onclick="setActive(' . $task_group['group_id'] . '); pullTasks(' . $task_group['group_id'] . ')">
                         <div class="group-infos">
                             <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
                             <p>' . $task_group['group_name'] . '</p>
                         </div>
+
+                        <div class="group-options" style="display: none;">
+                            <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editGroupName(' . $task_group['group_id'] . ')">
+                                <span class="material-symbols-rounded">edit</span>
+                            </button>
+                            <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteGroup(' . $task_group['group_id'] . ')">
+                                <span class="material-symbols-rounded">delete</span>
+                            </button>
+                        </div>
                     </div>
                 ';
-                    }
-                }
             }
             ?>
         </div>
@@ -134,7 +124,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <main>
 
-        <header class="search-container">
+        <header class="form-container">
             <form action="#" class="task-create-form"> <!-- Adicionar funcionalidade de criar nova tarefa -->
                 <button type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect">
                     <span id="add-icon" class="material-symbols-rounded "> add </span>
@@ -147,30 +137,8 @@ if (!isset($_SESSION['user_id'])) {
         </header>
 
         <div class="tasks-container" id="tasks-container">
-            <ul class="tasks-list demo-list-control mdl-list">
-                <?php
-                $tasks = $task_group['tasks'];
-                foreach ($tasks as $task) {
-                    echo '
-                    <li class="task mdl-list__item">
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-' . $task['task_id'] . '">
-                                <input type="checkbox" id="list-checkbox-' . $task['task_id'] . '" class="checkbox-input mdl-checkbox__input" />
-                            </label>
-                        </span>
-                        <p id="task-name-' . $task['task_id'] . '" class="task-name">' . $task['task_name'] . '</p>
-                        <div class="actions-container">
-                            <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(' . $task['task_id'] . ')">
-                                <span class="material-symbols-rounded">edit</span>
-                            </button>
-                            <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(' . $task['task_id'] . ')">
-                                <span class="material-symbols-rounded">delete</span>
-                            </button>
-                        </div>
-                    </li>
-                    ';
-                }
-                ?>
+            <ul class="tasks-list demo-list-control mdl-list" id="tasks-list">
+                <!-- As tarefas são carregadas aqui via a função pullTasks() -->
             </ul>
         </div>
     </main>
