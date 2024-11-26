@@ -30,6 +30,6 @@ foreach ($users as $user) {
 
 //todo Tentar fazer com que apareça uma mensagem de erro no formulário de login caso a autenticação falhe
 if ($authenticated == false) {
-    header('Location: ../auth/login.php?error=Email ou senha incorretos, tente novamente.');
+    header('Location: /1TD/Projetos/Dolt/src/auth/pages/sign_in.php');
     exit();
 }

@@ -1,25 +1,46 @@
 <?php
+
 session_start();
 
-$database = json_decode(file_get_contents('../backend/data/users_data.json'), true)['users'];
-$_SESSION['user_data'];
-
+$users_data_path = './data/users_data.json';
+$users_data = json_decode(file_get_contents($users_data_path), true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = file_get_contents('php://input');
-    $decode_data = json_decode($data, true);
 
-    foreach ($_SESSION['user_data']['tasks_groups'] as $group) {
-        if ($decode_data['group_id'] === $group['group_id']) {
-            foreach ($group['tasks'] as $task) {
-                if ($decode_data['task_id'] === $task['task_id']) {
-                    $task['is_checked'] = $decode_data['is_checked'];
+    $fetch_data = json_decode(file_get_contents('php://input'), true);
+    
+    if($users_data === null || !isset($users_data['users'])) {
+        echo json_encode([
+            'response' => 'Erro',
+            'details' => 'O banco de dados está corrompido ou não foi encontrado'
+        ]);
+        exit;
+    }
+
+    foreach ($users_data['users'] as &$user) {
+        if ($user['user_id'] === $_SESSION['user_id']) {
+            foreach ($user['tasks_groups'] as &$group) {
+                if ($group['group_id'] === $fetch_data['group_id']) {
+                    foreach ($group['tasks'] as &$task) {
+                        if ($task['task_id'] === $fetch_data['task_id']) {
+                            $task['is_checked'] = $fetch_data['is_checked'];
+                        }
+                    }
                 }
             }
         }
     }
 
-    file_put_contents('./data/users_data.json', json_encode($users_data), JSON_PRETTY_PRINT);
+    file_put_contents($users_data_path, json_encode($users_data));
+    
+    foreach ($users_data['users'] as &$user) {
+        if ($user['user_id'] === $_SESSION['user_id']) {
+            $_SESSION['user_data'] = $user;
+        }
+    }
 
-    echo json_encode([$decode_data]);
+    echo json_encode([
+        'response' => 200,
+        'details' =>  'O status da tarefa foi alterado com sucesso',
+    ]);
 }

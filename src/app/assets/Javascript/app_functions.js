@@ -1,5 +1,3 @@
-/* ----------------------- Funções usadas para grupos ↓ ----------------------- */
-
 function setActive(group_id) {
 
     // Busca no DOM todos os elementos com a classe group
@@ -89,12 +87,12 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
         if (this.checked) {
 
             //Se estiver envia uma requisição http para o arquivo php change_task_status.php
-            fetch('/backend/change_task_status.php', {
+            fetch('http://localhost/1TD/Projetos/Dolt/src/backend/change_task_status.php', {
 
                 // Define as informações da requisição: método, tipo de conteúdo, charset e o conteúdo em si 
                 method: 'POST',
                 headers: {
-                    'Content-Type' : 'application/json; charset=utf-8'
+                    'Content-Type': 'application/json; charset=utf-8'
                 },
 
                 // transforma os dados de JSON para texto
@@ -105,15 +103,15 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
                 })
             })
 
-            .then (response => response.json())
-            .then (data => console.log(data))
+                .then(response => response.json())
+                .then(data => console.log(data))
 
-        // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
+            // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
         } else {
-            fetch('/backend/change_task_status.php', {
+            fetch('/1TD/Projetos/Dolt/src/backend/change_task_status.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type' : 'application/json; charset=utf-8'
+                    'Content-Type': 'application/json; charset=utf-8'
                 },
                 body: JSON.stringify({
                     group_id: groupId,
@@ -121,8 +119,11 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
                     is_checked: false
                 })
             })
+
+            .then(response => response.json())
+            .then(data => console.log(data))
         }
     })
 }
-/* ----------------------- Funções usadas para tarefas ↓ ---------------------- */
+
 

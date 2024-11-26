@@ -3,7 +3,7 @@ session_start();
 
 // Verifica de o id da sessão foi definido, se não expulsa o usuário
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../auth/pages/sign_in.php');
+    header('Location: ../auth/sign_in.php');
     exit();
 } else {
 
