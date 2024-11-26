@@ -19,7 +19,7 @@ include 'arrays.php';
     renderheader()
     ?>
 
-<section class="initial-section">
+    <section class="initial-section">
         <div class="content-container">
             <img src="img/imagem_inicial.svg" class="imagem-inicial">
             <div class="text-container">
@@ -33,21 +33,31 @@ include 'arrays.php';
                 </div>
             </div>
         </div>
-</section>
+    </section>
 
     <section class="faq-section">
-        <p class="faq-text">Perguntas</p>
-        <p class="faq-subtext">Aqui estão algumas perguntas frequentes que podem ajudar você a entender melhor nosso serviço.</p>
-        <?php
+        <div class="faq-minicont">
+            <div class="faq-textcont">
+                <p class="faq-text">Perguntas</p>
+                <p class="faq-subtext">Aqui estão algumas perguntas frequentes que podem ajudar você a entender melhor nosso serviço.</p>
+            </div>
+            <div>
+                <?php
 
-        foreach ($sections as $title => $content) {
-            
-            echo "<button class='accordion'>$title<span class='symbol'>+</span></button>";
-            echo "<div class='panel'><p class='faq-content'>$content</p></div>";
-        }
+                foreach ($sections as $title => $content) {
 
-        ?>
+                    echo "<button class='accordion'><p class='faq-title'>$title</p><span class='symbol'>+</span></button>";
+                    echo "<div class='panel'><p class='faq-content'>$content</p></div>";
+                }
+                ?>
+            </div>
+        </div>
     </section>
+
+    <?php
+    renderfooter()
+    ?>
+
     <script src="faq.js"></script>
 
 </body>
