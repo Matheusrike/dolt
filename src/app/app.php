@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Verifica de o id da sessão foi definido, se não expulsa o usuário
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/pages/sign_in.php');
     exit();
@@ -10,17 +11,17 @@ if (!isset($_SESSION['user_id'])) {
     $users = json_decode(file_get_contents('../backend/data/users_data.json'), true)['users'];
 
     //Cria um array que contem apenas os dados do usuário da sessão
-    $user_data = null;
+    $_SESSION['user_data'] = null;
     foreach ($users as $user) {
         if ($_SESSION['user_id'] === $user['user_id']) {
-            $user_data = $user;
+            $_SESSION['user_data'] = $user;
             break;
         }
     }
 
-    //Verificar necessidade, se não houver, excluir:
-    if (!$user_data) {
-        header('Location: ../auth/login_teste.php');
+    //Verifica se o user data é null, se for expulsa o usuário.
+    if (!$_SESSION['user_data']) {
+        header('Location: ../auth/sign_in.php');
         exit();
     }
 }
@@ -52,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- Importa as funções javascript aplicados na página e torna o user_data global -->
     <script src="./assets/Javascript/app_functions.js"></script>
-    <script> var user_data = <?php echo json_encode($user_data); ?>;</script>
+    <script> var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;</script>
 </head>
 
 <body>
@@ -60,8 +61,8 @@ if (!isset($_SESSION['user_id'])) {
     <nav class="sidebar" id="sidebar">
         <div id="user" class="user-info">
             <span id="user-icon" class="material-symbols-rounded" style="color: var(--Dark-Blue);">account_circle</span>
-            <span class="item-description">
-                <?php echo $user_data['username']; ?>
+            <span class="username">
+                <?php echo $_SESSION['user_data']['username']; ?>
             </span>
         </div>
 
@@ -74,7 +75,7 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Campo com os grupos criados pelo usuário -->
         <div class="groups-container" id="groups">
             <?php
-            $task_groups = $user_data['tasks_groups'];
+            $task_groups = $_SESSION['user_data']['tasks_groups'];
             foreach ($task_groups as $task_group) {
                 echo '
                     <div class="group" id="group-' . $task_group['group_id'] . '" onclick="setActive(' . $task_group['group_id'] . '); pullTasks(' . $task_group['group_id'] . ')">

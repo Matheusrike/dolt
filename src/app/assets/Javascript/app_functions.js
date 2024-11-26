@@ -32,7 +32,7 @@ function pullTasks(group_id) {
     //Limpa a lista de tarefas antes de carregar outras
     const tasks_list = document.getElementById('tasks-list');
     tasks_list.innerHTML = '';
-    
+
     // Para cada objeto task dentro do array ele cria um li que vai ser inserido na lista tasks-list da main
     array_tasks.forEach(task => {
         const task_li = document.createElement('li');
@@ -46,10 +46,10 @@ function pullTasks(group_id) {
             </span>
             <p id="task-name-${task.task_id}" class="task-name">${task.task_name}</p>
             <div class="actions-container">
-                <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(${task.task_id})">
+                <button id="edit" class="task-edit rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(${task.task_id})">
                     <span class="material-symbols-rounded">edit</span>
                 </button>
-                <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${task.task_id})">
+                <button id="delete" class="task-delete rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${task.task_id})">
                     <span class="material-symbols-rounded">delete</span>
                 </button>
             </div>
@@ -68,10 +68,61 @@ function pullTasks(group_id) {
         // Adiciona o checkbox dentro da label
         const label = document.getElementById('label-' + task.task_id);
         label.appendChild(checkbox);
+
+        addEventListenersCheckbox(group_id, task.task_id, checkbox.id);
     })
 
-    //Recarrega o dom para aplicar as classes do material design lite
+    //Recarrega o dom para aplicar as classes do material design lite no conteúdo gerado
     componentHandler.upgradeDom();
+}
+
+// Função que adiciona o EventListener nos inputs de checkbox
+function addEventListenersCheckbox(groupId, taskId, checkboxId) {
+
+    //Pega a checkbox pelo elemento com o id passado
+    const checkbox = document.getElementById(checkboxId);
+
+    //Adiciona o EventListener para que quando houver uma mudança de status na checkbox ele executar
+    checkbox.addEventListener('change', function () {
+
+        // Verifica se a checkbox está checada
+        if (this.checked) {
+
+            //Se estiver envia uma requisição http para o arquivo php change_task_status.php
+            fetch('/backend/change_task_status.php', {
+
+                // Define as informações da requisição: método, tipo de conteúdo, charset e o conteúdo em si 
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json; charset=utf-8'
+                },
+
+                // transforma os dados de JSON para texto
+                body: JSON.stringify({
+                    group_id: groupId,
+                    task_id: taskId,
+                    is_checked: true
+                })
+            })
+
+            .then (response => response.json())
+            .then (data => console.log(data))
+
+        // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
+        } else {
+            fetch('/backend/change_task_status.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify({
+                    group_id: groupId,
+                    task_id: taskId,
+                    is_checked: false
+                })
+            })
+        }
+    })
 }
 /* ----------------------- Funções usadas para tarefas ↓ ---------------------- */
 

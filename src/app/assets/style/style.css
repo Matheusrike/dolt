@@ -31,6 +31,15 @@ body {
     margin: 0 1rem;
 }
 
+.username {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .group-create-form,
 .footer {
     justify-content: space-between;
