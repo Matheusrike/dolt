@@ -49,7 +49,7 @@ function renderfooter()
 }
 
 $politicas = [
-        "<p>1. Informações que Coletamos</p>" => "
+        "<p> Informações que Coletamos</p>" => "
         <p>Quando você utiliza a Dolt, podemos coletar as seguintes informações:</p>
         <ul>
         <li>Informações de Cadastro: como nome, e-mail e senha, necessários para criar e acessar sua conta.</li>
@@ -58,7 +58,7 @@ $politicas = [
         <li>Cookies e Tecnologias Similares: para melhorar sua experiência e personalizar conteúdo, podemos usar cookies que coletam informações sobre sua navegação.</li>
         </ul>",
 
-        "<p>2. Como Utilizamos Suas Informações</p>" => "
+        "<p> Como Utilizamos Suas Informações</p>" => "
         <p>Utilizamos suas informações para:</p>
         <ul>
         <li>Fornecer e Melhorar a Plataforma: como gerenciamento de tarefas, personalização da experiência e suporte ao cliente.</li>
@@ -68,7 +68,7 @@ $politicas = [
         </ul>
         ",
 
-        "<p>3. Uso de Informações por Terceiros</p>" => "<p>Não vendemos, alugamos ou divulgamos suas informações pessoais a terceiros, exceto nos seguintes casos: </p>
+        "<p> Uso de Informações por Terceiros</p>" => "<p>Não vendemos, alugamos ou divulgamos suas informações pessoais a terceiros, exceto nos seguintes casos: </p>
         <ul>
         <li>Prestadores de Serviços: podemos compartilhar dados com parceiros de confiança que nos auxiliam na operação da Dolt, como serviços de hospedagem, análise de dados e marketing. Estes prestadores têm acesso limitado aos dados e estão contratualmente obrigados a protegê-los.</li>
         <li>Requisitos Legais: podemos divulgar informações para cumprir obrigações legais, responder a solicitações de autoridades ou proteger nossos direitos em caso de litígios.</li>
@@ -76,11 +76,11 @@ $politicas = [
         </ul>
         ",
 
-        "<p>4. Segurança dos Dados</p>" => "<p> Implementamos medidas de segurança adequadas para proteger suas informações pessoais contra acessos não autorizados, perda ou alteração. Isso inclui o uso de criptografia, controles de acesso e outras práticas recomendadas de segurança. No entanto, nenhuma transmissão de dados pela internet ou armazenamento digital é 100% seguro, e não podemos garantir proteção absoluta. </p>",
+        "<p> Segurança dos Dados</p>" => "<p> Implementamos medidas de segurança adequadas para proteger suas informações pessoais contra acessos não autorizados, perda ou alteração. Isso inclui o uso de criptografia, controles de acesso e outras práticas recomendadas de segurança. No entanto, nenhuma transmissão de dados pela internet ou armazenamento digital é 100% seguro, e não podemos garantir proteção absoluta. </p>",
 
-        "<p>5. Retenção de Dados</p>" => "<p>Mantemos suas informações apenas enquanto for necessário para fornecer nossos serviços ou conforme exigido por leis e regulamentos aplicáveis. Após esse período, suas informações são apagadas ou anonimizadas.</p>",
+        "<p> Retenção de Dados</p>" => "<p>Mantemos suas informações apenas enquanto for necessário para fornecer nossos serviços ou conforme exigido por leis e regulamentos aplicáveis. Após esse período, suas informações são apagadas ou anonimizadas.</p>",
 
-        "<p>6. Seus Direitos</p>" => "
+        "<p> Seus Direitos</p>" => "
         <p>Você possui certos direitos sobre seus dados pessoais, incluindo:<p>
         <ul>
         <li>Acesso: você pode solicitar uma cópia dos seus dados pessoais que mantemos.</li>
@@ -91,9 +91,9 @@ $politicas = [
         <p>Para exercer seus direitos, entre em contato conosco no endereço abaixo. Responderemos dentro de um prazo razoável e conforme exigido por lei.</p>
         ",
 
-        "<p>7. Cookies e Tecnologias Similares</p>" => "<p>Utilizamos cookies para personalizar sua experiência e entender como nossa plataforma é utilizada. Você pode ajustar as configurações de cookies no seu navegador, mas isso pode afetar algumas funcionalidades da Dolt.</p>",
+        "<p> Cookies e Tecnologias Similares</p>" => "<p>Utilizamos cookies para personalizar sua experiência e entender como nossa plataforma é utilizada. Você pode ajustar as configurações de cookies no seu navegador, mas isso pode afetar algumas funcionalidades da Dolt.</p>",
 
-        "<p>8. Alterações nesta Política de Privacidade</p>" => "<p>Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações em nossos serviços ou exigências legais. Notificaremos sobre mudanças importantes através de avisos no site ou e-mail. Recomendamos que você reveja esta Política regularmente.</p>",
+        "<p> Alterações nesta Política de Privacidade</p>" => "<p>Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações em nossos serviços ou exigências legais. Notificaremos sobre mudanças importantes através de avisos no site ou e-mail. Recomendamos que você reveja esta Política regularmente.</p>",
 
 ]
 

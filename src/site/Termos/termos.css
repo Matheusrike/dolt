@@ -90,20 +90,14 @@ a {
     transform: translateY(-3px);
 }
 
-/* fim do header */
-
 /* inicio */
-.img-inicial {
-    width: 460px;
-    height: 400px;
-}
 
 .initial-section {
     display: flex;
+    gap: 80px;
     justify-content: center;
     align-items: center;
-    padding: 64px 50px;
-    gap: 80px;
+    padding: 50px 64px;
 }
 
 .text-container {
@@ -111,7 +105,7 @@ a {
     flex-direction: column;
     gap: 24px;
     width: 616px;
-    height: 212px;
+    height: 172px;
 }
 
 .initial-text {
@@ -121,22 +115,29 @@ a {
     text-align: left;
     color: #00429a;
     width: 616px;
-
 }
 
 .initial-subtext {
+    font-weight: 400;
     font-size: 18px;
     line-height: 150%;
     text-align: left;
     color: #151515;
     width: 616px;
-    height: 54px;
 }
 
-/* fim do inicio */
+.img-inicial {
+    height: 400px;
+    width: 438px;
+}
 
-/* politicas */
-.seguranca-section {
+
+
+
+
+/* termos */
+
+.termos-section {
     display: flex;
     align-items: center;
     padding: 64px 50px;
@@ -144,35 +145,37 @@ a {
     gap: 300px;
 }
 
-.politicas-container {
+.termos-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.politicas-minicont {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
     gap: 24px;
-    padding-top: 24px;
-    padding-bottom: 24px;
 }
 
-.politicas-text {
+.termos-minicont {
     display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 768px;
+    height: 252px;
+}
+
+.termos-text {
+    font-weight: 700;
     font-size: 40px;
     line-height: 120%;
+    text-align: left;
     color: #00429a;
-    font-weight: 700;
 }
-.politicas-subtext {
+
+.termos-subtext {
+    font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    width: 768px;
+    text-align: left;
     color: #151515;
 }
 
+/* redirecionador */
 .redirecionador {
     display: flex;
     position: sticky;
@@ -210,8 +213,6 @@ a {
 .botao-red:hover {
     background-color: #ccc;
 }
-
-/* fim da politicas */
 
 /* footer */
 
@@ -303,5 +304,3 @@ a {
     width: 100%;
     left: 0;
 }
-
-/* fim do footer */
