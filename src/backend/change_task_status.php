@@ -38,9 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_data'] = $user;
         }
     }
-
+    
     echo json_encode([
         'response' => 200,
         'details' =>  'O status da tarefa foi alterado com sucesso',
+        'updated_data' => $_SESSION['user_data']
     ]);
 }

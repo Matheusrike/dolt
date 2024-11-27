@@ -22,7 +22,6 @@ function setActive(group_id) {
     })
 }
 
-
 function pullTasks(group_id) {
     //Busca o array de tarefas do grupo selecionado com base no user_data do usuário.
     const array_tasks = user_data.tasks_groups.find(group => group.group_id === group_id)?.tasks;
@@ -74,13 +73,16 @@ function pullTasks(group_id) {
     componentHandler.upgradeDom();
 }
 
-// Função que adiciona o EventListener nos inputs de checkbox
-function addEventListenersCheckbox(groupId, taskId, checkboxId) {
 
-    //Pega a checkbox pelo elemento com o id passado
+/* -------------------------- Funções auxiliares ↓ -------------------------- */
+
+function addEventListenersCheckbox(groupId, taskId, checkboxId) {
+// Função que adiciona o EventListener nos inputs de checkbox para alterar o status das tarefas
+
+    //Pega a checkbox pelo id passado
     const checkbox = document.getElementById(checkboxId);
 
-    //Adiciona o EventListener para que quando houver uma mudança de status na checkbox ele executar
+    //Adiciona o EventListener na checkbox para que quando houver uma mudança de status
     checkbox.addEventListener('change', function () {
 
         // Verifica se a checkbox está checada
@@ -103,11 +105,16 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
                 })
             })
 
+                // Quando o change_task_status.php responder, a resposta será convertida de texto para um objeto JSON
                 .then(response => response.json())
-                .then(data => console.log(data))
 
-            // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
+
+                .then(data => {
+                    user_data = data.updated_data
+                    console.log(data)
+                })
         } else {
+            // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
             fetch('/1TD/Projetos/Dolt/src/backend/change_task_status.php', {
                 method: 'POST',
                 headers: {
@@ -117,11 +124,14 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
                     group_id: groupId,
                     task_id: taskId,
                     is_checked: false
+
                 })
             })
-
-            .then(response => response.json())
-            .then(data => console.log(data))
+                .then(response => response.json())
+                .then(data => {
+                    user_data = data.updated_data
+                    console.log(data)
+                })
         }
     })
 }
