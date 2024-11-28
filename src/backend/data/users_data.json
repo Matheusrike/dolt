@@ -8,22 +8,52 @@
             "tasks_groups": [
                 {
                     "group_id": 0,
-                    "group_name": "Teste1",
+                    "group_name": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos delectus explicabo veritatis excepturi reprehenderit, a temporibus, architecto",
                     "tasks": [
                         {
                             "task_id": 0,
-                            "task_name": "T_Teste1",
-                            "is_checked": false
+                            "task_name": "teste",
+                            "is_checked": true
                         },
                         {
                             "task_id": 1,
-                            "task_name": "T_Teste2",
-                            "is_checked": false
+                            "task_name": "teste",
+                            "is_checked": true
                         },
                         {
                             "task_id": 2,
-                            "task_name": "T_Teste3",
-                            "is_checked": false
+                            "task_name": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos delectus explicabo veritatis excepturi reprehenderit, a temporibus, architecto itaque nisi alias iste autem asperiores eligendi atque, repudiandae aspernatur perferendis quis eius?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos delectus explicabo veritatis excepturi reprehenderit, a temporibus, architecto itaque nisi alias iste autem asperiores eligendi atque, repudiandae aspernatur perferendis quis eius?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos delectus explicabo veritatis excepturi reprehenderit, a temporibus, architecto itaque nisi alias iste autem asperiores eligendi atque, repudiandae aspernatur perferendis quis eius?",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 3,
+                            "task_name": "T_Teste4",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 4,
+                            "task_name": "T_Teste5",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 5,
+                            "task_name": "T_Teste6",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 6,
+                            "task_name": "T_Teste7",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 7,
+                            "task_name": "T_Teste8",
+                            "is_checked": true
+                        },
+                        {
+                            "task_id": 8,
+                            "task_name": "T_Teste9",
+                            "is_checked": true
                         }
                     ]
                 },
@@ -34,40 +64,24 @@
                         {
                             "task_id": 0,
                             "task_name": "T_Teste4",
-                            "is_checked": false
+                            "is_checked": true
                         },
                         {
                             "task_id": 1,
                             "task_name": "T_Teste5",
-                            "is_checked": false
+                            "is_checked": true
                         },
                         {
                             "task_id": 2,
                             "task_name": "T_Teste6",
-                            "is_checked": false
+                            "is_checked": true
                         }
                     ]
                 },
                 {
                     "group_id": 2,
                     "group_name": "Teste 3",
-                    "tasks": [
-                        {
-                            "task_id": 0,
-                            "task_name": "T_Teste7",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 1,
-                            "task_name": "T_Teste8",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 2,
-                            "task_name": "T_Teste9",
-                            "is_checked": false
-                        }
-                    ]
+                    "tasks": []
                 }
             ]
         },
@@ -75,30 +89,8 @@
             "user_id": 1,
             "username": "Teste2",
             "user_email": "teste2@email.com",
-            "user_password": "Teste_456",
-            "tasks_groups": [
-                {
-                    "group_id": 0,
-                    "group_name": "Teste2",
-                    "tasks": [
-                        {
-                            "task_id": 0,
-                            "task_name": "Teste1",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 1,
-                            "task_name": "Teste873uu8",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 2,
-                            "task_name": "Teste3",
-                            "is_checked": false
-                        }
-                    ]
-                }
-            ]
+            "user_password": "teste456",
+            "tasks_groups": []
         }
     ]
 }

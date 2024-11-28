@@ -1,34 +1,39 @@
-function setActive(group_id) {
-
-    // Busca no DOM todos os elementos com a classe group
-    const groups = document.querySelectorAll('.group');
-
-    // Percorre todos os elementos com a classe group
-    groups.forEach(group => {
-        // Para cada Elemento com a classe group, remove a classe active
-        group.classList.remove('active');
-        //Cria uma constante que recebe a div com a classe group-options que está dentro do group
-        const group_options = group.querySelector('.group-options');
-        //Adiciona a propriedade style a div group-options com o valor display: none
-        group_options.setAttribute('style', 'display: none;');
-
-        // Se o id do group for igual ao group_id passado como argumento
-        if (group.id == "group-" + group_id) {
-
-            // Adiciona a classe active e remove a propriedade style da div group-options
-            group.classList.add('active');
-            group_options.removeAttribute('style', 'display: none;');
-        }
-    })
-}
+//* Função que carrega as tarefas do grupo selecionado
 
 function pullTasks(group_id) {
     //Busca o array de tarefas do grupo selecionado com base no user_data do usuário.
     const array_tasks = user_data.tasks_groups.find(group => group.group_id === group_id)?.tasks;
 
-    //Limpa a lista de tarefas antes de carregar outras
-    const tasks_list = document.getElementById('tasks-list');
-    tasks_list.innerHTML = '';
+    // Verifica se o array de tarefas do grupo selecionado está vazio
+    if (array_tasks.length === 0) {
+
+        //Adiciona o input de criação de tarefa no DOM
+        mainBasicStructure(group_id);
+
+        //Exibe um alerta de que o grupo não possui nenhuma tarefa
+        const tasks_container = document.getElementById("tasks-container");
+        tasks_container.innerHTML = `
+        <div class="tasks-alert">
+            <img src="./assets/img/none-task-icon.svg">
+            <h1>Nenhuma Tarefa encontrada</h1>
+            <p>Você não possui nenhuma tarefa criada considere criar uma para começar</p>
+        </div>`;
+
+        //Se o grupo tiver tarefas elas serão carregadas
+    }
+
+    //Cria a main com o formulário de criação de tarefa e o container de tarefas
+    mainBasicStructure(group_id);
+
+    //Limpa o tasks-container e cria a lista dentro dele
+    tasks_container = document.getElementById("tasks-container");
+    tasks_container.innerHTML = '';
+
+    const tasks_list = document.createElement('ul');
+    tasks_list.id = 'tasks-list';
+    tasks_list.className = 'tasks-list demo-list-control mdl-list';
+
+    tasks_container.appendChild(tasks_list);
 
     // Para cada objeto task dentro do array ele cria um li que vai ser inserido na lista tasks-list da main
     array_tasks.forEach(task => {
@@ -66,18 +71,16 @@ function pullTasks(group_id) {
         const label = document.getElementById('label-' + task.task_id);
         label.appendChild(checkbox);
 
-        addEventListenersCheckbox(group_id, task.task_id, checkbox.id);
+        // adiciona o EventListener na checkbox e faz com que ela envie a requisição para o backend quando mudar de status
+        handleCheckboxChange(group_id, task.task_id, checkbox.id);
     })
 
     //Recarrega o dom para aplicar as classes do material design lite no conteúdo gerado
     componentHandler.upgradeDom();
 }
 
-
-/* -------------------------- Funções auxiliares ↓ -------------------------- */
-
-function addEventListenersCheckbox(groupId, taskId, checkboxId) {
-// Função que adiciona o EventListener nos inputs de checkbox para alterar o status das tarefas
+//* Função que adiciona o EventListener nos inputs de checkbox para alterar o status das tarefas
+function handleCheckboxChange(groupId, taskId, checkboxId) {
 
     //Pega a checkbox pelo id passado
     const checkbox = document.getElementById(checkboxId);
@@ -85,11 +88,13 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
     //Adiciona o EventListener na checkbox para que quando houver uma mudança de status
     checkbox.addEventListener('change', function () {
 
+        const url = '/backend/change_task_status.php';
+
         // Verifica se a checkbox está checada
         if (this.checked) {
 
             //Se estiver envia uma requisição http para o arquivo php change_task_status.php
-            fetch('http://localhost/1TD/Projetos/Dolt/src/backend/change_task_status.php', {
+            fetch(url, {
 
                 // Define as informações da requisição: método, tipo de conteúdo, charset e o conteúdo em si 
                 method: 'POST',
@@ -115,7 +120,7 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
                 })
         } else {
             // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
-            fetch('/1TD/Projetos/Dolt/src/backend/change_task_status.php', {
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
@@ -136,4 +141,45 @@ function addEventListenersCheckbox(groupId, taskId, checkboxId) {
     })
 }
 
+//* Função que cria o formulário de criação de tarefa
+function mainBasicStructure(group_id) {
+    // Cria a div do formulário e adiciona na main
+    const main = document.getElementsByTagName('main')[0];
+    main.innerHTML = '';
 
+    const form_container = document.createElement('div');
+    form_container.className = 'form-container';
+    main.appendChild(form_container);
+
+    // Cria o formulário
+    const task_create_form = document.createElement('form');
+    task_create_form.className = 'task-create-form';
+    form_container.appendChild(task_create_form);
+
+    // Cria o botão de submit do formulário
+    const submit_button = document.createElement('button');
+    submit_button.className = 'rounded-cta-button mdl-js-button mdl-js-ripple-effect';
+    submit_button.innerHTML = `<span id="add-icon" class="material-symbols-rounded">add</span>`;
+    task_create_form.appendChild(submit_button);
+
+    // Adiciona o EventListener ao botão de submit que evita o comportamento padrão do formulário e chama a função createTask
+    submit_button.addEventListener('click', (event) => {
+        event.preventDefault();
+        createTask(group_id);
+    });
+
+    //Adiciona o input no formulário
+    const input = document.createElement('div');
+    input.className = 'input-container';
+    input.innerHTML = `
+        <input type="text" id="task-name" class="input" name="task-name" required minlength="1">
+        <label for="task-name">Nova tarefa</label>
+    `;
+    task_create_form.appendChild(input);
+
+    const tasks_container = document.createElement('div');
+    tasks_container.id = 'tasks-container';
+    tasks_container.className = 'tasks-container';
+    tasks_container.innerHTML = `<ul class="tasks-list demo-list-control mdl-list" id="tasks-list"></ul>`;
+    main.appendChild(tasks_container);
+}

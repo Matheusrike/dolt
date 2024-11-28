@@ -30,6 +30,6 @@ foreach ($users as $user) {
 
 //todo Tentar fazer com que apareça uma mensagem de erro no formulário de login caso a autenticação falhe
 if ($authenticated == false) {
-    header('Location: /1TD/Projetos/Dolt/src/auth/pages/sign_in.php');
+    header('Location: ../auth/pages/sign_in.php');
     exit();
 }

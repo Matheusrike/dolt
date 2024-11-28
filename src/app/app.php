@@ -52,8 +52,9 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="./assets/style/style.css">
 
     <!-- Importa as funções javascript aplicados na página e torna o user_data global -->
-    <script src="./assets/Javascript/app_functions.js"></script>
-    <script> var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;</script>
+    <script>
+        var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;
+    </script>
 </head>
 
 <body>
@@ -66,40 +67,14 @@ if (!isset($_SESSION['user_id'])) {
             </span>
         </div>
 
-        <!-- Mensagem de alerta para o usuário caso ele ainda não tenha criado nenhum grupo -->
-        <div class="none-group-container" id="alert" style="display: none;">
-            <img src="./assets/img/noneGroup-icon.svg">
-            <p>Você ainda não possui nenhum grupo criado</p>
-        </div>
-
         <!-- Campo com os grupos criados pelo usuário -->
-        <div class="groups-container" id="groups">
-            <?php
-            $task_groups = $_SESSION['user_data']['tasks_groups'];
-            foreach ($task_groups as $task_group) {
-                echo '
-                    <div class="group" id="group-' . $task_group['group_id'] . '" onclick="setActive(' . $task_group['group_id'] . '); pullTasks(' . $task_group['group_id'] . ')">
-                        <div class="group-infos">
-                            <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
-                            <p>' . $task_group['group_name'] . '</p>
-                        </div>
-
-                        <div class="group-options" style="display: none;">
-                            <button id="edit" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editGroupName(' . $task_group['group_id'] . ')">
-                                <span class="material-symbols-rounded">edit</span>
-                            </button>
-                            <button id="delete" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteGroup(' . $task_group['group_id'] . ')">
-                                <span class="material-symbols-rounded">delete</span>
-                            </button>
-                        </div>
-                    </div>
-                ';
-            }
-            ?>
+        <div class="groups-container" id="groups-container">
+            <script src="./assets/Javascript/group.js"></script>
+            <script src="./assets/Javascript/task.js"></script>
         </div>
 
         <!-- Campo onde o usuário cria um novo grupo -->
-        <form action="#" class="group-create-form"> <!--todo Adicionar funcionalidade de criar novo grupo -->
+        <form action="#" class="group-create-form">
             <div class="input-container">
                 <input type="text" id="group-name" class="input" name="group-name" required minlength="1">
                 <label for="group-name">Nome do grupo</label>
@@ -113,8 +88,7 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Campo com o logo da Dolt e o botão de logout -->
         <div class="footer">
             <img src="../global/img/Logo.svg" alt="Dolt.inc" height="32px" class="logo">
-            <!--todo Remover height no CSS-->
-            <button class="expandable-button mdl-js-button mdl-js-ripple-effect">
+            <button id="logout-button" class="expandable-button mdl-js-button mdl-js-ripple-effect">
                 <div class="icon">
                     <span id="logout-icon" class="material-symbols-rounded">logout</span>
                 </div>
@@ -124,23 +98,10 @@ if (!isset($_SESSION['user_id'])) {
     </nav>
 
     <main>
-
-        <header class="form-container">
-            <form action="#" class="task-create-form"> <!-- Adicionar funcionalidade de criar nova tarefa -->
-                <button type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect">
-                    <span id="add-icon" class="material-symbols-rounded "> add </span>
-                </button>
-                <div class="input-container">
-                    <input type="text" id="task-name" class="input" name="task-name" required minlength="1">
-                    <label for="task-name">Nova tarefa</label>
-                </div>
-            </form>
-        </header>
-
-        <div class="tasks-container" id="tasks-container">
-            <ul class="tasks-list demo-list-control mdl-list" id="tasks-list">
-                <!-- As tarefas são carregadas aqui via a função pullTasks() -->
-            </ul>
+        <div class="any-group-selected">
+            <img src="./assets/img/select-list-icon.svg" alt="O grupo que vocês procurava nao foi encontrado. Selecione uma das lista na barra lateral ou crie uma lista nova.">
+            <h1>Grupo não encontrado</h1>
+            <p>O grupo que vocês procurava nao foi encontrado.<br>Selecione uma das lista na barra lateral ou crie uma lista nova.</p>
         </div>
     </main>
 </body>
