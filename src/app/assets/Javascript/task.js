@@ -48,10 +48,10 @@ function pullTasks(group_id) {
             </span>
             <p id="task-name-${task.task_id}" class="task-name">${task.task_name}</p>
             <div class="actions-container">
-                <button id="edit" class="task-edit rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(${task.task_id})">
+                <button id="edit-button" class="task-edit rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editTask(${task.task_id})">
                     <span class="material-symbols-rounded">edit</span>
                 </button>
-                <button id="delete" class="task-delete rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${task.task_id})">
+                <button id="delete-button" class="task-delete rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${task.task_id})">
                     <span class="material-symbols-rounded">delete</span>
                 </button>
             </div>
@@ -79,105 +79,4 @@ function pullTasks(group_id) {
 
     //Recarrega o dom para aplicar as classes do material design lite no conteúdo gerado
     componentHandler.upgradeDom();
-}
-
-// Função que adiciona o EventListener nos inputs de checkbox para alterar o status das tarefas
-function handleCheckboxChange(groupId, taskId, checkboxId) {
-
-    //Pega a checkbox pelo id passado
-    const checkbox = document.getElementById(checkboxId);
-
-    //Adiciona o EventListener na checkbox para que quando houver uma mudança de status
-    checkbox.addEventListener('change', function () {
-
-        const url = '/backend/change_task_status.php';
-
-        // Verifica se a checkbox está checada
-        if (this.checked) {
-
-            //Se estiver envia uma requisição http para o arquivo php change_task_status.php
-            fetch(url, {
-
-                // Define as informações da requisição: método, tipo de conteúdo, charset e o conteúdo em si 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                },
-
-                // transforma os dados de JSON para texto
-                body: JSON.stringify({
-                    group_id: groupId,
-                    task_id: taskId,
-                    is_checked: true
-                })
-            })
-
-                // Quando o change_task_status.php responder, a resposta será convertida de texto para um objeto JSON
-                .then(response => response.json())
-                .then(data => {
-                    user_data = data.updated_data
-                })
-        } else {
-            // Realiza a mesma coisa da condição anterior, mas apenas quando for desmarcado a checkbox
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                },
-                body: JSON.stringify({
-                    group_id: groupId,
-                    task_id: taskId,
-                    is_checked: false
-
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    user_data = data.updated_data
-                })
-        }
-    })
-}
-
-// Função que cria o formulário de criação de tarefa e o container de tarefas
-function mainBasicStructure(group_id) {
-    // Cria a div do formulário e adiciona na main
-    const main = document.getElementsByTagName('main')[0];
-    main.innerHTML = '';
-
-    const form_container = document.createElement('div');
-    form_container.className = 'form-container';
-    main.appendChild(form_container);
-
-    // Cria o formulário
-    const task_create_form = document.createElement('form');
-    task_create_form.className = 'task-create-form';
-    form_container.appendChild(task_create_form);
-
-    // Cria o botão de submit do formulário
-    const submit_button = document.createElement('button');
-    submit_button.className = 'rounded-cta-button mdl-js-button mdl-js-ripple-effect';
-    submit_button.innerHTML = `<span id="add-icon" class="material-symbols-rounded">add</span>`;
-    task_create_form.appendChild(submit_button);
-
-    // Adiciona o EventListener ao botão de submit que evita o comportamento padrão do formulário e chama a função createTask
-    submit_button.addEventListener('click', (event) => {
-        event.preventDefault();
-        createTask(group_id);
-    });
-
-    //Adiciona o input no formulário
-    const input = document.createElement('div');
-    input.className = 'input-container';
-    input.innerHTML = `
-        <input type="text" id="task-name" class="input" name="task-name" required minlength="1">
-        <label for="task-name">Nova tarefa</label>
-    `;
-    task_create_form.appendChild(input);
-
-    const tasks_container = document.createElement('div');
-    tasks_container.id = 'tasks-container';
-    tasks_container.className = 'tasks-container';
-    tasks_container.innerHTML = `<ul class="tasks-list demo-list-control mdl-list" id="tasks-list"></ul>`;
-    main.appendChild(tasks_container);
 }

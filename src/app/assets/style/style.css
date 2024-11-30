@@ -114,12 +114,12 @@ body {
     background-color: var(--Light-Gray);
 }
 
-.group:hover #delete,
-.group:active #delete,
-.group.active #delete,
-.group:hover #edit,
-.group:active #edit,
-.group.active #edit {
+.group:hover #delete-button,
+.group:active #delete-button,
+.group.active #delete-button,
+.group:hover #edit-button,
+.group:active #edit-button,
+.group.active #edit-button {
     background-color: var(--Light-Gray);
 }
 
@@ -130,7 +130,7 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 3px;
+    width: 5px;
     background-color: var(--Dark-Blue);
 }
 
@@ -182,24 +182,44 @@ body {
     font-weight: 600;
 }
 
+.group.active.editing {
+    background-color: var(--White);
+    display: flex;
+    justify-content: start;
+    gap: 0.5rem;
+}
+
+.group.active.editing .group-infos {
+    max-width: 100%;
+}
+
+
 .sidebar .input-container {
     max-width: 100%;
 }
 
-#delete:hover span {
-    color: var(--Delete);
+#delete-button span, #edit-button span {
+    color: var(--Dark-Gray)
 }
 
-#delete.mdl-js-ripple-effect .mdl-ripple {
+#delete-button.mdl-js-ripple-effect .mdl-ripple {
     background-color: var(--Delete);
 }
 
-#edit:hover span {
+#delete-button:hover span {
+    color: var(--Delete);
+}
+
+#edit-button:hover span {
     color: var(--Blue);
 }
 
-#edit.mdl-js-ripple-effect .mdl-ripple {
+#edit-button.mdl-js-ripple-effect .mdl-ripple {
     background-color: var(--Blue);
+}
+
+#save-button span {
+    color: var(--White);
 }
 
 /* -------------------- Estilização da main da aplicação -------------------- */

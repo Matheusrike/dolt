@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    file_put_contents($JSON_path, json_encode($users_data));
+    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT));
     
     foreach ($users_data['users'] as &$user) {
         if ($user['user_id'] === $_SESSION['user_id']) {

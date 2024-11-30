@@ -49,21 +49,27 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
+    <!-- Importa a biblioteca SweetAlert2 e animate.css via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!-- Define os arquivos css aplicados na página -->
     <link rel="stylesheet" href="../global/global.css">
     <link rel="stylesheet" href="./assets/style/style.css">
 
-    <!-- Importa as funções javascript aplicados na página e torna o user_data global -->
+    <!-- Importa as funções javascript aplicados na página e torna o user_data global e chama as funções de inicialização -->
+    <script defer src="./assets/Javascript/handlers.js"></script>
+    <script defer src="./assets/Javascript/crud_group.js"></script>
+    <script defer src="./assets/Javascript/logout.js"></script>
+    <script defer src="./assets/Javascript/task.js"></script>
     <script>
         var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;
-        document.addEventListener ('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
             renderGroups(user_data);
+            clearMain();
+            createGroup();
         })
     </script>
-    <script defer src="./assets/Javascript/load_group.js"></script>
-    <script defer src="./assets/Javascript/logout.js"></script>
-    <script defer src="./assets/Javascript/crud_group.js"></script>
-    <script defer src="./assets/Javascript/task.js"></script>
 </head>
 
 <body>
@@ -82,9 +88,9 @@ if (!isset($_SESSION['user_id'])) {
         <div class="group-create-form">
             <div class="input-container">
                 <input type="text" id="input-group-name" class="input" name="group-name" required minlength="1">
-                <label for="group-name">Nome do grupo</label>
+                <label for="group-name">Nome da lista</label>
             </div>
-            <button type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect" onclick="createGroup()">
+            <button id="add-button" type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect">
                 <span id="add-icon" class="material-symbols-rounded "> add </span>
             </button>
         </div>
@@ -101,13 +107,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </nav>
 
-    <main>
-        <div class="any-group-selected">
-            <img src="./assets/img/select-list-icon.svg" alt="O grupo que vocês procurava nao foi encontrado. Selecione uma das lista na barra lateral ou crie uma lista nova.">
-            <h1>Grupo não encontrado</h1>
-            <p>O grupo que vocês procurava nao foi encontrado.<br>Selecione uma das lista na barra lateral ou crie uma lista nova.</p>
-        </div>
-    </main>
+    <main></main>
 </body>
 
 </html>

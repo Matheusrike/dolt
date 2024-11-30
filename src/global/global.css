@@ -15,7 +15,7 @@ html {
 
 :root {
     /* Variáveis da paleta de cores */
-    --White: #FCFCFC;
+    --White: #FBFAF5;
     --Black: #151515;
     --Dark-Gray: #AAAAAA;
     --Light-Gray: #F0F0F0;
@@ -212,4 +212,24 @@ body {
 .mdl-js-ripple-effect .mdl-ripple.is-animating {
     animation-duration: 1s;
     transform: scale(1);
+}
+
+/* ------------------------- Ajustes do Sweet Alert ------------------------- */
+
+.swal2-popup {
+    font-size: 150% !important;
+}
+
+.swal-title {
+    font-size: 3rem;
+    color: var(--Blue);
+    font-weight: 600;
+    margin: 0;
+}
+
+.swal-text {
+    font-size: 2rem;
+    color: var(--Black);
+    font-weight: 600;
+    margin: 0;
 }
