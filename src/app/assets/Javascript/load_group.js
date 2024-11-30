@@ -1,32 +1,33 @@
-//* Carrega os grupos do user_data dentro da div groups-container
+/* ---------------- Carregamento dos grupos de forma dinâmica --------------- */
+function renderGroups(user_data) {
+    const groups_container = document.getElementById('groups-container');
 
-const groups_container = document.getElementById('groups-container');
+    groups_container.innerHTML = '';
 
-const tasks_groups = user_data.tasks_groups;
+    const tasks_groups = user_data.tasks_groups;
 
-if (tasks_groups.length === 0) {
-
-    groups_container.innerHTML = `
+    if (tasks_groups.length === 0) {
+        groups_container.innerHTML = `
         <div class="none-group-container" id="alert">
             <img src="./assets/img/none-group-icon.svg">
             <h1>Nenhum Grupo Existente</h1>
             <p>Não foi encontrado nenhum grupo. <br>Considere criar um para começar</p>
         </div>
     `;
-    
-}
 
-tasks_groups.forEach(group => {
-    const group_div = document.createElement('div');
-    group_div.id = `group-${group.group_id}`;
-    group_div.className = 'group';
+    }
 
-    group_div.addEventListener('click', () => {
-        setActive(group.group_id);
-        pullTasks(group.group_id);
-    })
+    tasks_groups.forEach(group => {
+        const group_div = document.createElement('div');
+        group_div.id = `group-${group.group_id}`;
+        group_div.className = 'group';
 
-    group_div.innerHTML = `
+        group_div.addEventListener('click', () => {
+            setActive(group.group_id);
+            pullTasks(group.group_id);
+        })
+
+        group_div.innerHTML = `
             <div class="group-infos">
                 <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
                 <p>${group.group_name}</p>
@@ -41,11 +42,12 @@ tasks_groups.forEach(group => {
             </div>
         `;
 
-    groups_container.appendChild(group_div);
-})
+        groups_container.appendChild(group_div);
+    })
 
+}
 
-//* Função que define o grupo selecionado como ativo
+// Função que define o grupo selecionado como ativo
 function setActive(group_id) {
 
     // Busca no DOM todos os elementos com a classe group
@@ -71,4 +73,3 @@ function setActive(group_id) {
         }
     })
 }
-

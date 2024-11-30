@@ -2,8 +2,8 @@
 
 session_start();
 
-$users_data_path = './data/users_data.json';
-$users_data = json_decode(file_get_contents($users_data_path), true);
+$JSON_path = './data/users_data.json';
+$users_data = json_decode(file_get_contents($JSON_path), true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    file_put_contents($users_data_path, json_encode($users_data));
+    file_put_contents($JSON_path, json_encode($users_data));
     
     foreach ($users_data['users'] as &$user) {
         if ($user['user_id'] === $_SESSION['user_id']) {

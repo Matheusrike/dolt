@@ -8,7 +8,9 @@ if (!isset($_SESSION['user_id'])) {
 } else {
 
     //Acessa o array users que está dentro do arquivo users_data.json
-    $users = json_decode(file_get_contents('../backend/data/users_data.json'), true)['users'];
+    $JSON_file_array = json_decode(file_get_contents('../backend/data/users_data.json'), true);
+
+    $users = $JSON_file_array['users'];
 
     //Cria um array que contem apenas os dados do usuário da sessão
     $_SESSION['user_data'] = null;
@@ -54,11 +56,17 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Importa as funções javascript aplicados na página e torna o user_data global -->
     <script>
         var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;
+        document.addEventListener ('DOMContentLoaded', () => {
+            renderGroups(user_data);
+        })
     </script>
+    <script defer src="./assets/Javascript/load_group.js"></script>
+    <script defer src="./assets/Javascript/logout.js"></script>
+    <script defer src="./assets/Javascript/crud_group.js"></script>
+    <script defer src="./assets/Javascript/task.js"></script>
 </head>
 
 <body>
-
     <nav class="sidebar" id="sidebar">
         <div id="user" class="user-info">
             <span id="user-icon" class="material-symbols-rounded" style="color: var(--Dark-Blue);">account_circle</span>
@@ -68,27 +76,23 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <!-- Campo com os grupos criados pelo usuário -->
-        <div class="groups-container" id="groups-container">
-            <script src="./assets/Javascript/group.js"></script>
-            <script src="./assets/Javascript/task.js"></script>
-        </div>
+        <div class="groups-container" id="groups-container"></div>
 
-        <!-- Campo onde o usuário cria um novo grupo -->
-        <form action="#" class="group-create-form">
+        <!--Campo onde o usuário cria um novo grupo -->
+        <div class="group-create-form">
             <div class="input-container">
-                <input type="text" id="group-name" class="input" name="group-name" required minlength="1">
+                <input type="text" id="input-group-name" class="input" name="group-name" required minlength="1">
                 <label for="group-name">Nome do grupo</label>
             </div>
-
-            <button type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect">
+            <button type="submit" class="rounded-cta-button mdl-js-button mdl-js-ripple-effect" onclick="createGroup()">
                 <span id="add-icon" class="material-symbols-rounded "> add </span>
             </button>
-        </form>
+        </div>
 
         <!-- Campo com o logo da Dolt e o botão de logout -->
         <div class="footer">
             <img src="../global/img/Logo.svg" alt="Dolt.inc" height="32px" class="logo">
-            <button id="logout-button" class="expandable-button mdl-js-button mdl-js-ripple-effect">
+            <button id="logout-button" class="expandable-button mdl-js-button mdl-js-ripple-effect" onclick="logout()">
                 <div class="icon">
                     <span id="logout-icon" class="material-symbols-rounded">logout</span>
                 </div>
