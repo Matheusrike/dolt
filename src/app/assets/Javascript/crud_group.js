@@ -39,12 +39,12 @@ function createGroup() {
                 // Converte a resposta em JSON e depois verifica se ela foi bem sucedida
                 .then(response => response.json())
                 .then(data => {
-                    if (data.response !== 200) {
-                        console.error(data);
-                    } else {
+                    if (data.response === 200) {
                         user_data = data.updated_data;
                         renderGroups(user_data);
                         input.value = '';
+                    } else {
+                        console.error(data);
                     }
                 })
         }
@@ -68,36 +68,35 @@ function renderGroups(user_data) {
         </div>
     `;
 
-    }
-
-    tasks_groups.forEach(group => {
-        const group_div = document.createElement('div');
-        group_div.id = `group-${group.group_id}`;
-        group_div.className = 'group';
-
-        group_div.addEventListener('click', () => {
-            setActive(group.group_id);
-            pullTasks(group.group_id);
+    } else {
+        tasks_groups.forEach(group => {
+            const group_div = document.createElement('div');
+            group_div.id = `group-${group.group_id}`;
+            group_div.className = 'group';
+    
+            group_div.addEventListener('click', () => {
+                setActive(group.group_id);
+                renderTasks(group.group_id);
+            })
+    
+            group_div.innerHTML = `
+                <div class="group-infos">
+                    <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
+                    <p>${group.group_name}</p>
+                </div>
+                <div class="group-options" style="display: none;">
+                    <button class="edit-button rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editGroup(${group.group_id})">
+                        <span class="material-symbols-rounded">edit</span>
+                    </button>
+                    <button class="delete-button rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteGroup(${group.group_id})">
+                        <span class="material-symbols-rounded">delete</span>
+                    </button>
+                </div>
+            `;
+    
+            groups_container.appendChild(group_div);
         })
-
-        group_div.innerHTML = `
-            <div class="group-infos">
-                <span id="group-icon" class="material-symbols-rounded">format_list_bulleted</span>
-                <p>${group.group_name}</p>
-            </div>
-            <div class="group-options" style="display: none;">
-                <button id="edit-button" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="editGroup(${group.group_id})">
-                    <span class="material-symbols-rounded">edit</span>
-                </button>
-                <button id="delete-button" class="rounded-tertiary-button mdl-js-button mdl-js-ripple-effect" onclick="deleteGroup(${group.group_id})">
-                    <span class="material-symbols-rounded">delete</span>
-                </button>
-            </div>
-        `;
-
-        groups_container.appendChild(group_div);
-    })
-
+    }
 }
 
 // Função para renomear um grupo
@@ -126,12 +125,19 @@ function editGroup(group_id) {
         if (event.key === 'Enter') {
             send_data();
         }
-    })
+    });
+    input.addEventListener('keyup', () => {
+        if (event.key === 'Escape') {
+            group_infos.classList.remove('editing');
+            renderGroups(user_data);
+            setActive(group_id);
+        }
+    });
 
     const save_button = document.getElementById('save-button');
     save_button.addEventListener('click', () => {
         send_data();
-    })
+    });
 
     const send_data = () => {
         if (input.value == '') {
@@ -139,7 +145,7 @@ function editGroup(group_id) {
             input.reportValidity();
             input.addEventListener('keyup', () => {
                 input.setCustomValidity('');
-            })
+            });
             input.focus();
         } else {
             fetch('/backend/update_group.php', {
@@ -229,6 +235,8 @@ function deleteGroup(group_id) {
                             icon: 'success',
                             text: 'A lista foi deletada com sucesso.'
                         })
+                    } else {
+                        console.error(data);
                     }
                 })
         }

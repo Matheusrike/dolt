@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT));
+    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
     echo json_encode([
         'response' => 200,

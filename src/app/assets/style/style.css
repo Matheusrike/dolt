@@ -114,12 +114,12 @@ body {
     background-color: var(--Light-Gray);
 }
 
-.group:hover #delete-button,
-.group:active #delete-button,
-.group.active #delete-button,
-.group:hover #edit-button,
-.group:active #edit-button,
-.group.active #edit-button {
+.group:hover .delete-button,
+.group:active .delete-button,
+.group.active .delete-button,
+.group:hover .edit-button,
+.group:active .edit-button,
+.group.active .edit-button {
     background-color: var(--Light-Gray);
 }
 
@@ -191,6 +191,7 @@ body {
 
 .group.active.editing .group-infos {
     max-width: 100%;
+    padding: 0.1rem;
 }
 
 
@@ -198,23 +199,23 @@ body {
     max-width: 100%;
 }
 
-#delete-button span, #edit-button span {
+.delete-button span, .edit-button span {
     color: var(--Dark-Gray)
 }
 
-#delete-button.mdl-js-ripple-effect .mdl-ripple {
+.delete-button.mdl-js-ripple-effect .mdl-ripple {
     background-color: var(--Delete);
 }
 
-#delete-button:hover span {
+.delete-button:hover span {
     color: var(--Delete);
 }
 
-#edit-button:hover span {
+.edit-button:hover span {
     color: var(--Blue);
 }
 
-#edit-button.mdl-js-ripple-effect .mdl-ripple {
+.edit-button.mdl-js-ripple-effect .mdl-ripple {
     background-color: var(--Blue);
 }
 
@@ -307,7 +308,7 @@ main {
 }
 
 /*Estilo do container das tarefas*/
-.tasks-container {
+.main-container {
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -334,6 +335,7 @@ main {
     border-bottom: 1px solid var(--Light-Gray);
     overflow:visible;
     max-width: 100%;
+    position: relative;
 }
 
 .task .checkbox {
@@ -343,6 +345,7 @@ main {
     justify-content: center;
     width: 1.6rem;
     height: 1.6rem;
+
 }
 
 .task .task-name {
@@ -351,6 +354,15 @@ main {
     font-size: 1.6rem;
     margin: 0;
     text-align: justify;
+}
+
+#rename-task-label {
+    top: 1.2rem;
+}
+
+.input-container input:valid~label,
+.input-container input:focus~label {
+    transform: translateY(-1.8rem);
 }
 
 /* ------------------------- Customização do ícones ------------------------- */

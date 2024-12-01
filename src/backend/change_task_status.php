@@ -24,14 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     foreach ($group['tasks'] as &$task) {
                         if ($task['task_id'] === $fetch_data['task_id']) {
                             $task['is_checked'] = $fetch_data['is_checked'];
+                            $_SESSION['user_data'] = $user;
+                            break;
                         }
                     }
+                    break;
                 }
             }
+            break;
         }
     }
 
-    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT));
+    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT  | JSON_UNESCAPED_UNICODE));
     
     foreach ($users_data['users'] as &$user) {
         if ($user['user_id'] === $_SESSION['user_id']) {

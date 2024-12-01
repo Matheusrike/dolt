@@ -61,7 +61,7 @@ if (!isset($_SESSION['user_id'])) {
     <script defer src="./assets/Javascript/handlers.js"></script>
     <script defer src="./assets/Javascript/crud_group.js"></script>
     <script defer src="./assets/Javascript/logout.js"></script>
-    <script defer src="./assets/Javascript/task.js"></script>
+    <script defer src="./assets/Javascript/crud_task.js"></script>
     <script>
         var user_data = <?php echo json_encode($_SESSION['user_data']); ?>;
         document.addEventListener('DOMContentLoaded', () => {

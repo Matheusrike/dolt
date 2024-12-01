@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD']  === 'POST') {
             $_SESSION['user_data'] = $user;
         }
     }
-    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT));
+    file_put_contents($JSON_path, json_encode($users_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     //Retorna o grupo criado
     echo json_encode([
         'response' => 200,
