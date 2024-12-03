@@ -2,39 +2,10 @@
     "users": [
         {
             "user_id": 0,
-            "username": "Teste",
-            "user_email": "teste@email.com",
-            "user_password": "teste123",
+            "username": "admin",
+            "user_email": "admin@email.com",
+            "user_password": "admin",
             "tasks_groups": []
-        },
-        {
-            "user_id": 1,
-            "username": "Teste2",
-            "user_email": "teste2@email.com",
-            "user_password": "Teste_456",
-            "tasks_groups": [
-                {
-                    "group_id": 0,
-                    "group_name": "Teste2",
-                    "tasks": [
-                        {
-                            "task_id": 0,
-                            "task_name": "Teste1",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 1,
-                            "task_name": "Teste873uu8",
-                            "is_checked": false
-                        },
-                        {
-                            "task_id": 2,
-                            "task_name": "Teste3",
-                            "is_checked": false
-                        }
-                    ]
-                }
-            ]
         }
     ]
 }

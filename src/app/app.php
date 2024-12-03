@@ -1,31 +1,26 @@
 <?php
 session_start();
 
-// Verifica de o id da sessão foi definido, se não expulsa o usuário
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../auth/pages/sign_in.php');
+$_SESSION['user_id'] = 0;
+
+//Acessa o array users que está dentro do arquivo users_data.json
+$JSON_file_array = json_decode(file_get_contents('../backend/data/users_data.json'), true);
+
+$users = $JSON_file_array['users'];
+
+//Cria um array que contem apenas os dados do usuário da sessão
+$_SESSION['user_data'] = null;
+foreach ($users as $user) {
+    if ($_SESSION['user_id'] === $user['user_id']) {
+        $_SESSION['user_data'] = $user;
+        break;
+    }
+}
+
+//Verifica se o user data é null, se for expulsa o usuário.
+if (!$_SESSION['user_data']) {
+    header('Location: ../auth/sign_in.php');
     exit();
-} else {
-
-    //Acessa o array users que está dentro do arquivo users_data.json
-    $JSON_file_array = json_decode(file_get_contents('../backend/data/users_data.json'), true);
-
-    $users = $JSON_file_array['users'];
-
-    //Cria um array que contem apenas os dados do usuário da sessão
-    $_SESSION['user_data'] = null;
-    foreach ($users as $user) {
-        if ($_SESSION['user_id'] === $user['user_id']) {
-            $_SESSION['user_data'] = $user;
-            break;
-        }
-    }
-
-    //Verifica se o user data é null, se for expulsa o usuário.
-    if (!$_SESSION['user_data']) {
-        header('Location: ../auth/sign_in.php');
-        exit();
-    }
 }
 ?>
 
@@ -74,13 +69,6 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <nav class="sidebar" id="sidebar">
-        <div id="user" class="user-info">
-            <span id="user-icon" class="material-symbols-rounded" style="color: var(--Dark-Blue);">account_circle</span>
-            <span class="username">
-                <?php echo $_SESSION['user_data']['username']; ?>
-            </span>
-        </div>
-
         <!-- Campo com os grupos criados pelo usuário -->
         <div class="groups-container" id="groups-container"></div>
 
@@ -98,12 +86,6 @@ if (!isset($_SESSION['user_id'])) {
         <!-- Campo com o logo da Dolt e o botão de logout -->
         <div class="footer">
             <img src="../global/img/Logo.svg" alt="Dolt.inc" height="32px" class="logo">
-            <button id="logout-button" class="expandable-button mdl-js-button mdl-js-ripple-effect" onclick="logout()">
-                <div class="icon">
-                    <span id="logout-icon" class="material-symbols-rounded">logout</span>
-                </div>
-                <div class="text">Logout</div>
-            </button>
         </div>
     </nav>
 
