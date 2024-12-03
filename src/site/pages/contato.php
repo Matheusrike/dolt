@@ -2,15 +2,9 @@
 include '../backend/contatoarrays.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolt - Contato</title>
-    <link rel="stylesheet" href="../assets/css/contato.css">
-    <style>
-        .popup-overlay {
+<html lang="pt-br">
+<style> 
+    .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -55,9 +49,26 @@ include '../backend/contatoarrays.php';
 }
 
 .popup button:hover {
-    background: #006bd6;
+    background: #00429A;
 }
-    </style>
+
+@keyframes popup-animation {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolt - Contato</title>
+    <link rel="stylesheet" href="../assets/css/contato.css">
+   
     <script>
         // Exibir o pop-up
         function showPopup() {
