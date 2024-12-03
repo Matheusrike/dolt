@@ -9,7 +9,7 @@ include './site/pagina_inicial/arrays.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./site/pagina_inicial/pagin.css">
+    <link rel="stylesheet" href="./site/assets/css/pagin.css">
 </head>
 
 <body>
@@ -20,16 +20,16 @@ include './site/pagina_inicial/arrays.php';
     <div class="container">
         <div class="textbox">
             <p class="bigtext">Gerencie suas tarefas de forma eficiente</p>
+            <a href="./site/pages/contato.php"></a>
             <p class="subtext">Nossa aplicação de gerenciamento de tarefas ajuda você a organizar seu dia a dia com
                 facilidade. Experimente uma nova forma de produtividade e alcance seus objetivos com mais eficiência.
             </p>
             <div class="btn-div">
-                <button class="btn-jorn">Iniciar Jornada</button>
-                <button class="btn-sai">Saiba Mais</button>
+                <a href="../../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
         <div class="imagem">
-            <img src="./site/pagina_inicial/img/Image.png" class="">
+            <img src="./site/img/image.svg" class="">
         </div>
     </div>
     <section class="initial-section">
@@ -44,19 +44,19 @@ include './site/pagina_inicial/arrays.php';
         </div>
         <div class="boxcontainer">
             <div class="box">
-                <img src="./site/pagina_inicial/img/mais.svg" class="">
+                <img src="./site/img/mais.svg" class="">
                 <p class="box-bigtext">Crie e acompanhe suas tarefas do dia a dia</p>
                 <p class="box-subtext">Adicione novas tarefas rapidamente e monitore o progresso das suas tarefas
                     pendentes e concluídas.</p>
             </div>
             <div class="box">
-                <img src="./site/pagina_inicial/img/caneta.svg" class="">
+                <img src="./site/img/caneta.svg" class="">
                 <p class="box-bigtext">Edite-as de forma simples e rápida</p>
                 <p class="box-subtext">Faça alterações nas tarefas existentes conforme for necessário para concluí-la.
                 </p>
             </div>
             <div class="box">
-                <img src="./site/pagina_inicial/img/check.svg" class="box-img">
+                <img src="./site/img/check.svg" class="box-img">
                 <p class="box-bigtext">Conclua suas tarefas facilmente</p>
                 <p class="box-subtext">Conclua tarefas que já foram finalizadas e mantenha seu dashboard mais limpo e
                     organizado.</p>
@@ -70,24 +70,24 @@ include './site/pagina_inicial/arrays.php';
         </div>
         <div class="avacontainer">
             <div class="ava-box">
-                <img src="./site/pagina_inicial/img/Stars.svg" class="img-ava">
+                <img src="./site/img/Stars.svg" class="img-ava">
                 <p class="ava-bigtext">“A aplicação é fantástica! A interface é super intuitiva e ajuda muito no meu dia
                     a dia. Perfeito!”</p>
-                <img src="./site/pagina_inicial/img/pessoa1.svg" class="img-ava2">
+                <img src="./site/img/pessoa1.svg" class="img-ava2">
                 <p class="ava-subtext">Carlos Mendes</p>
             </div>
             <div class="ava-box">
-                <img src="./site/pagina_inicial/img/Stars.svg" class="img-ava">
+                <img src="./site/img/Stars.svg" class="img-ava">
                 <p class="ava-bigtext">“Adorei a atenção aos detalhes da Dolt. O app organiza minhas tarefas de forma
                     incrível.”</p>
-                <img src="./site/pagina_inicial/img/pessoa2.svg" class="img-ava2">
+                <img src="./site/img/pessoa2.svg" class="img-ava2">
                 <p class="ava-subtext">Emily Johnson</p>
             </div>
             <div class="ava-box">
-                <img src="./site/pagina_inicial/img/Stars.svg" class="img-ava">
+                <img src="./site/img/Stars.svg" class="img-ava">
                 <p class="ava-bigtext">“É perfeito para organizar meu dia de forma simples e eficiente. Recomendo para
                     quem quiser se organizar”</p>
-                <img src="./site/pagina_inicial/img/pessoa3.svg" class="img-ava2">
+                <img src="./site/img/pessoa3.svg" class="img-ava2">
                 <p class="ava-subtext">Lauren Mitchell</p>
             </div>
         </div>
@@ -95,7 +95,7 @@ include './site/pagina_inicial/arrays.php';
 
     <section class="exper-section">
         <div>
-            <img src="./site/pagina_inicial/img/experimente.svg" class="exper-img">
+            <img src="./site/img/experimente.svg" class="exper-img">
         </div>
         <div class="exper-minicont">
             <div class="exper-textcont">
@@ -105,8 +105,7 @@ include './site/pagina_inicial/arrays.php';
                 </p>
             </div>
             <div class="exper-btncont">
-                <button class="btn-jorn">Iniciar Jornada</button>
-                <button class="btn-aces">Acessar</button>
+            <a href="../../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
     </section>
