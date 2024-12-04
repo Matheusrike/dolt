@@ -1,5 +1,5 @@
 <?php
-include './site/pagina_inicial/arrays.php';
+include './site/backend/arrays.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,9 @@ include './site/pagina_inicial/arrays.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dolt - Gerenciador de Tarefas</title>
     <link rel="stylesheet" href="./site/assets/css/pagin.css">
+    <link rel="shortcut icon" href="./global/img/Favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -25,7 +26,7 @@ include './site/pagina_inicial/arrays.php';
                 facilidade. Experimente uma nova forma de produtividade e alcance seus objetivos com mais eficiência.
             </p>
             <div class="btn-div">
-                <a href="../../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
+                <a href="../src/app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
         <div class="imagem">
@@ -105,7 +106,7 @@ include './site/pagina_inicial/arrays.php';
                 </p>
             </div>
             <div class="exper-btncont">
-            <a href="../../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
+            <a href="../src/app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
     </section>

@@ -5,14 +5,14 @@ function renderheader()
     echo '
     <header class="header">
         <div class="header-div">
-            <p class="head-text"><a href="../../site/pages/sobrenos.php">Sobre Nós</a></p>
-            <p class="head-text"><a href="./site/pages/contato.php">Contato</a></p>
+            <p class="head-text"><a href="../src/site/pages/sobrenos.php">Sobre Nós</a></p>
+            <p class="head-text"><a href="../src/site/pages/contato.php">Contato</a></p>
         </div>
         <div>
             <img src="./site/img/Logo.svg" class="imagem-head">
         </div>
         <div class="header-div2">
-            <button class="btn-cad"><a href="../../app/app.php">Acessar</a></button>
+            <button class="btn-cad"><a href="../src/app/app.php">Acessar</a></button>
         </div>
     </header>
     ';
@@ -27,9 +27,9 @@ function renderfooter()
             <div class="footer-minicont">
                 <img src="./site/img/Logo.svg" class="img-footer">
                 <div class="footer-textcont">
-                    <p class="footer-text1"><a href="../../site/pages/PdP.php" class="footer-link">Termos de Uso</a></p>
-                    <p class="footer-text2"><a href="../../site/pages/PdP.php" class="footer-link">Política de Privacidade</a></p>
-                    <p class="footer-text1"><a href="../../site/pages/PdP.php" class="footer-link">Fale Conosco</a></p>
+                    <p class="footer-text1"><a href="../src/site/pages/termos.php" class="footer-link">Termos de Uso</a></p>
+                    <p class="footer-text2"><a href="../src/site/pages/PdP.php" class="footer-link">Política de Privacidade</a></p>
+                    <p class="footer-text1"><a href="../src/site/pages/contato.php" class="footer-link">Fale Conosco</a></p>
                 </div>
                 <div class="img-container">
                     <a href=""><img src="./site/img/Facebook.svg" class="footer-minimg"></a>

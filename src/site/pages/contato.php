@@ -68,7 +68,7 @@ include '../backend/contatoarrays.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolt - Contato</title>
     <link rel="stylesheet" href="../assets/css/contato.css">
-   
+    <link rel="shortcut icon" href="../../global/img/Favicon.ico" type="image/x-icon">
     <script>
         // Exibir o pop-up
         function showPopup() {

@@ -19,7 +19,7 @@ function checkboxChange(groupId, taskId, checkboxId) {
     checkbox.addEventListener('change', () => {
 
         // Define a URL da requisição
-        const url = '/backend/change_task_status.php';
+        const url = '/1TD/Projetos/Dolt/src/backend/change_task_status.php';
 
         // Verifica se a checkbox está marcada
         if (checkbox.checked) {

@@ -5,8 +5,8 @@ function renderheader()
     echo '
     <header class="header">
         <div class="header-div">
-            <p class="head-text"><a href="../../site/pages/sobrenos.php">Sobre Nós</a></p>
-            <p class="head-text"><a href="./site/pages/contato.php">Contato</a></p>
+            <p class="head-text"><a href="../pages/sobrenos.php">Sobre Nós</a></p>
+            <p class="head-text"><a href="../pages/contato.php">Contato</a></p>
         </div>
         <div>
             <a href="../../index.php"><img src="../img/Logo.svg" class="imagem-head"></a>

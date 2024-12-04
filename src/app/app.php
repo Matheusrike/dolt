@@ -83,7 +83,7 @@ if (!$_SESSION['user_data']) {
             </button>
         </div>
 
-        <!-- Campo com o logo da Dolt e o botão de logout -->
+        <!-- Campo com o logo da Dolt-->
         <div class="footer">
             <img src="../global/img/Logo.svg" alt="Dolt.inc" height="32px" class="logo">
         </div>

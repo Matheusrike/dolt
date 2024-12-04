@@ -10,6 +10,7 @@ include '../backend/termosarrays.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolt - Termos de Uso</title>
     <link rel="stylesheet" href="../assets/css/termos.css">
+    <link rel="shortcut icon" href="../../global/img/Favicon.ico" type="image/x-icon">
 </head>
 
 <body>

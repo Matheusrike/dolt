@@ -12,7 +12,7 @@ function createTask(group_id) {
         })
         input.focus();
     } else {
-        fetch('/backend/create_task.php', {
+        fetch('../backend/create_task.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json, charset=UTF-8',
@@ -150,7 +150,7 @@ function editTask(task_id, group_id) {
             })
             input.focus();
         } else {
-            fetch('/backend/update_task.php', {
+            fetch('../backend/update_task.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset = UTF-8'
@@ -175,7 +175,7 @@ function editTask(task_id, group_id) {
 }
 
 function deleteTask(task_id, group_id) {
-    fetch('/backend/delete_task.php', {
+    fetch('../backend/delete_task.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset = UTF-8'

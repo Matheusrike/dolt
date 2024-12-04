@@ -27,7 +27,7 @@ function createGroup() {
             input.focus();
         } else {
             // Envia uma requisição http para o arquivo php create_group.php com o nome do novo grupo
-            fetch('/backend/create_group.php', {
+            fetch('../backend/create_group.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset = UTF-8'
@@ -148,7 +148,7 @@ function editGroup(group_id) {
             });
             input.focus();
         } else {
-            fetch('/backend/update_group.php', {
+            fetch('../backend/update_group.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset = UTF-8'
@@ -216,7 +216,7 @@ function deleteGroup(group_id) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('/backend/delete_group.php', {
+            fetch('../backend/delete_group.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset = UTF-8'
