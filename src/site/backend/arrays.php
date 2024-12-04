@@ -12,7 +12,7 @@ function renderheader()
             <img src="./site/img/Logo.svg" class="imagem-head">
         </div>
         <div class="header-div2">
-            <button class="btn-cad"><a href="../src/app/app.php">Acessar</a></button>
+            <button class="btn-cad"><a href="../src/auth/login.php">Acessar</a></button>
         </div>
     </header>
     ';
