@@ -26,7 +26,7 @@ include './site/backend/arrays.php';
                 facilidade. Experimente uma nova forma de produtividade e alcance seus objetivos com mais eficiência.
             </p>
             <div class="btn-div">
-                <a href="../src/app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
+                <a href="../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
         <div class="imagem">
@@ -106,7 +106,7 @@ include './site/backend/arrays.php';
                 </p>
             </div>
             <div class="exper-btncont">
-            <a href="../src/app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
+            <a href="../app/app.php"><button class="btn-jorn">Iniciar Jornada</button></a>
             </div>
         </div>
     </section>
