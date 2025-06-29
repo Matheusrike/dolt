@@ -1,1 +1,26 @@
-*/node_modules
+# Dependências
+**/node_modules/
+**/.pnpm/
+
+# Compilados TypeScript
+**/dist/
+**/build/
+
+# Arquivos de log
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Ambiente
+.env
+.env.*
+
+# Cache
+.pnpm-store/
+.vscode/
+.cache/
+*.tsbuildinfo
+
+# Sistema
+.DS_Store
+Thumbs.db
